@@ -10,5 +10,4 @@
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_144"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;C:\Users\Jesse-JAmes\OneDrive\Documents\School\Rutgers\Data Managment\New folder\.metadata\.plugins\org.eclipse.wst.server.core\tmp0&quot; -Dcatalina.home=&quot;C:\Program Files (x86)\Apache Software Foundation\Tomcat 7.0&quot; -Dwtp.deploy=&quot;C:\Users\Jesse-JAmes\OneDrive\Documents\School\Rutgers\Data Managment\New folder\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps&quot; -Djava.endorsed.dirs=&quot;C:\Program Files (x86)\Apache Software Foundation\Tomcat 7.0\endorsed&quot;"/>
-<stringAttribute key="server-id" value="Tomcat v7.0 Server at localhost"/>
 </launchConfiguration>
