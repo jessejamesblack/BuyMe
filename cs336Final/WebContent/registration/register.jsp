@@ -19,6 +19,12 @@
       else{
       out.print("Invalid registration credentials");
       }
+      
       conn.close(); //close connection to db
+      
+      } catch(Exception e){
+          out.print("error");
+          }
+      
       
       %>
