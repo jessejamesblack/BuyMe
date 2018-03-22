@@ -17,4 +17,5 @@
    catch(Exception e){       
        out.println("Error, something went wrong");       
    }      
+   conn.close();
 %>
