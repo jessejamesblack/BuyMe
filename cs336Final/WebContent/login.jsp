@@ -9,13 +9,15 @@
         pst.setString(1, username);
         pst.setString(2, password);
         ResultSet rs = pst.executeQuery();                        
-        if(rs.next())           
+        if(rs.next()) {          
            out.println("Successfully Logged In");        
-        else
-           out.println("Email and/or password invalid");            
+        }else{
+           out.println("Email and/or password invalid");   
+           }
+        conn.close();
    }
    catch(Exception e){       
        out.println("Error, something went wrong");       
    }      
-   conn.close();
+   
 %>
