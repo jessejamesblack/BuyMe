@@ -13,7 +13,7 @@
       pst.setString(3, password);
       status = pst.executeUpdate();
       
-      if(status){
+      if(status > 0){
       out.print("You are successfully registered");
       }
       else{
