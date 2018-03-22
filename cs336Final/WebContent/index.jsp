@@ -4,6 +4,6 @@ Password:<input type="password" name="pass"/><br/><br/>
 <input type="submit" value="login"/>
 </form>
 <br>
-<form method="post" action="index2.jsp">
+<form action="index2.jsp">
   <input type="submit" value="Register?">
 </form>
