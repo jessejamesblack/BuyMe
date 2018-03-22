@@ -5,5 +5,5 @@ Password:<input type="password" name="pass"/><br/><br/>
 </form>
 <br>
 <form action="index2.jsp">
-  <input type="button" value="Register?">
+  <input type="submit" value="Register?">
 </form>
