@@ -6,7 +6,7 @@ public class LoginDao {
 		try{
 			Connection con=ConnectionProvider.getCon();
 			
-			PreparedStatement ps=con.prepareStatement("select * from user432 where email=? and pass=?");
+			PreparedStatement ps=con.prepareStatement("select * from EndUser where email=? and pass=?");
 			ps.setString(1,bean.getEmail());
 			ps.setString(2, bean.getPass());
 			
