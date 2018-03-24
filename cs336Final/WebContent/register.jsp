@@ -5,10 +5,7 @@
       String username = request.getParameter("username");
       String email = request.getParameter("email");
       String password = request.getParameter("password");
-      if(username == "" || email == "" || password == ""){
-          status = 0;
-      }
-      else if(username == "Name..." || email == "Email ID..." || password == "Password..."){
+      if(username == "Name..." || email == "Email ID..." || password == "Password..."){
           status = 0;
       }
       else {
