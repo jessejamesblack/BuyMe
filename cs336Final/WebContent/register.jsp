@@ -10,7 +10,7 @@
       Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
       PreparedStatement pst = conn.prepareStatement("INSERT INTO EndUser VALUES(?,?,?)");
         
-      if(username == "Name..." || email == "Email ID..." || password == "Password..."){
+      if(username == "" || email == "" || password == ""){
           status = 0;
       }
       else {
