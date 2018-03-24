@@ -4,7 +4,7 @@ Password:<input type="password" name="password"/><br/><br/>
 <input type="submit" value="Login"/>
 </form>
 <br>
-<form action="index2.jsp">
+<form action="registerhome.jsp">
   <input type="submit" value="Register?">
 </form>
 <br>
