@@ -11,3 +11,6 @@ Password:<input type="password" name="password"/><br/><br/>
 <form action = "adminloginhome.jsp">
   <input type="submit" value="Administrator Login Page"/>
 <form/>
+  <form action = "CRloginhome.jsp">
+  <input type="submit" value="Customer Representative Login Page"/>
+  <form/>
