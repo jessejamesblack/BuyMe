@@ -1,3 +1,7 @@
+<html>
+<head>
+<title>BuyMe HomePage</title>
+</head>
 <form method="post" action="login.jsp">
 Email:<input type="text" name="email"/><br/><br/>
 Password:<input type="password" name="password"/><br/><br/>
@@ -8,3 +12,4 @@ Password:<input type="password" name="password"/><br/><br/>
 <br><br>
 <a href = "adminloginhome.jsp">Administrator Login Page</a><br>
 <a href = "CRloginhome.jsp">Customer Representative Login Page</a>
+</html>
