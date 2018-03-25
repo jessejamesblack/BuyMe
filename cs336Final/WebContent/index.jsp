@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>BuyMe HomePage</title>
+<title>BuyMe Home Page</title>
 </head>
 <form method="post" action="login.jsp">
 Email:<input type="text" name="email"/><br/><br/>
