@@ -9,9 +9,9 @@
       Class.forName("com.mysql.jdbc.Driver");
       Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
       PreparedStatement pst = conn.prepareStatement("INSERT INTO EndUser VALUES(?,?,?)");
-        
+      
       if(username == "" || email == "" || password == ""){
-          status = 0;
+    	  status = 0;
       }
       else {
         pst.setString(1, username);
@@ -20,10 +20,10 @@
         status = pst.executeUpdate();
       }
       if(status > 0){
-      out.print("You are successfully registered");
+      response.sendRedirect("index.jsp");
       }
       else{
-      out.print("Invalid registration credentials");
+      response.sendRedirect("registerhome.jsp");
       }
       
       conn.close(); //close connection to db
