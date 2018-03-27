@@ -10,9 +10,9 @@
         pst.setString(2, password);
         ResultSet rs = pst.executeQuery();                        
         if(rs.next()) {          
-           out.println("Successfully Logged In"); 
+           response.sendRedirect("auctionhome.jsp"); 
         }else{
-           out.println("Email and/or password invalid");   
+        	response.sendRedirect("CRloginhome.jsp");
            }
         conn.close();
    }
