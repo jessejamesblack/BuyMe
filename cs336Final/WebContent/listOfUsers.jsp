@@ -8,6 +8,7 @@
 <h1>List Of Users</h1>
 </head>
 <body>
-
+<form method="post" action="userPage.jsp">
+<input type="submit" value="Login"/>
 </body>
 </html>
