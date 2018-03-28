@@ -14,12 +14,12 @@
 </form>
 <br>
 <br>
-<form method="post" action="userssearch.jsp">
+<form method="post" action="listOfUsers.jsp">
 <input type="search">
 <input type="submit" value="Search Users">
 </form>
 <br>
-<form method="post" action="itemssearch.jsp">
+<form method="post" action="listOfItems.jsp">
 <input type="search">
 <input type="submit" value="Search Items">
 </form>
