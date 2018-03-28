@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Auction Home</title>
 </head>
+<center>
 <body>
 <h1>BuyMe Auction Home</h1>
 <form method="post" action = "createauction.jsp">
@@ -23,4 +24,5 @@
 <input type="submit" value="Search Items">
 </form>
 </body>
+</center>
 </html>
