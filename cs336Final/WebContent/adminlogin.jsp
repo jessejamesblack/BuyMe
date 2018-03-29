@@ -10,6 +10,8 @@
         pst.setString(2, password);
         ResultSet rs = pst.executeQuery();                        
         if(rs.next()) {     
+            session.setAttribute("USERNAME", rs.getString("username"));
+        	session.setAttribute("EMAIL", rs.getString("email"));
         	response.sendRedirect("adminAction.jsp");
         }else{
            response.sendRedirect("adminloginhome.jsp");   
