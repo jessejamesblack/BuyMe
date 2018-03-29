@@ -27,6 +27,11 @@
 <form method="post" action="logout.jsp">
 <input type="submit" value="Logout">
 </form>
+</form>
+<br><br><br>
+<form method="delete" action="deleteAccount.jsp">
+<input type="submit" value="delete">
+</form>
 </body>
 </center>
 </html>
