@@ -9,7 +9,9 @@
         pst.setString(1, username);
         pst.setString(2, password);
         ResultSet rs = pst.executeQuery();                        
-        if(rs.next()) {          
+        if(rs.next()) {
+           session.setAttribute("USERNAME", rs.getString("username"));
+           session.setAttribute("EMAIL", rs.getString("email"));
            response.sendRedirect("auctionhome.jsp"); 
         }else{
         	response.sendRedirect("CRloginhome.jsp");
