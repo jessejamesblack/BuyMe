@@ -23,6 +23,10 @@
 <input type="search">
 <input type="submit" value="Search Items">
 </form>
+<br><br><br>
+<form method="post" action="logout.jsp">
+<input type="submit" value="Logout">
+</form>
 </body>
 </center>
 </html>
