@@ -22,7 +22,7 @@ try{
 		out.print("failed deletion");
 	}
 
-    }else {out.print("can't do that, account info illegal");
+    }else {out.print("can't do that, account info illegal")};
 }
 catch(Exception e){       
    out.println("Error, something went wrong");       
