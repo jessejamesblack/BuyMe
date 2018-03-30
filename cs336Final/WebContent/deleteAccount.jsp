@@ -1,6 +1,6 @@
 <%@ page import ="java.sql.*" %>
 <%
-status = 0;
+int status = 0;
 try{
     String username = request.getParameter("username");
     String email = request.getParameter("email");   
@@ -21,11 +21,10 @@ try{
 	}else {
 		out.print("failed deletion");
 	}
-
-    }else {out.print("can't do that, account info illegal")};
+    }else {out.print("can't do that, account info illegal");}
 }
 catch(Exception e){       
-   out.println("Error, something went wrong");       
+   out.print(e.getMessage());       
 }
 response.sendRedirect("index.jsp");
 %>
