@@ -10,7 +10,6 @@
 </center>
 </head>
 <body>
-
 <center>
 <h1>Administrator Actions:</h1>
 <form method="post" action="CRcreateAccount.jsp">
@@ -20,7 +19,7 @@ Email Address:<input type="text" name="email"/><br/>
 Password:<input type="password" name="password"/><br/>
 <input type="submit" value="Register"/>
 </form>
+<br><a href="CRaccountDeletion.jsp">Delete CR Account</a>
 </center>
 </body>
 </html>
-
