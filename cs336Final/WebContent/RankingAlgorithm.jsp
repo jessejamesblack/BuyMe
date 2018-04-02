@@ -9,7 +9,7 @@
 	  
       String query = "SELECT * FROM Auction";
       
-      String itemName; //Name of the item we are searching for
+      String itemName = request.getParameter("itemName");; //Name of the item we are searching for
       
       ArrayList<String> arr = new ArrayList<String>();
       
@@ -75,15 +75,26 @@
           rank[j+1] = key;
           arr.set(j+1,key2);
       }
-      
-	  for(int e = lengthTable-1; e >= 0;e-- ){
+      out.println("Items");%>
+      ____________________
+      <br>
+      <br>
+	 <% 
+	 if(max>=2){
+	 
+	 for(int e = lengthTable-1; e >= 0;e-- ){
 		  if(rank[e] >= (max*0.6)){
-			  System.out.print(arr.get(e));
-			  System.out.print(" ");
-			  System.out.println(rank[e]);
+			  out.println(arr.get(e));%>
+			  <br>
+			  <br>
+			 <% //System.out.print(" ");
+			  //System.out.println(rank[e]);
 		  }
 	  }
-	  
+	 }else{
+		 out.println("No items found");
+		 
+	 }
    } catch(Exception e){
           out.print("error");
           }
