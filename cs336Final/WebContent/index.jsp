@@ -4,6 +4,14 @@
 </head>
 <center><h1>BuyMe</h1></center>
 <center>
+
+<br>
+<form method="post" action="RankingAlgorithm.jsp">
+<input type="text" name="itemName"/><br/><br/>
+<input type="submit" value="Search Items">
+</form>
+<br><br><br>
+
 <form method="post" action="login.jsp">
 Username:<input type="text" name="username"/><br/><br/>
 Password:<input type="password" name="password"/><br/><br/>
