@@ -19,8 +19,8 @@
 <input type="submit" value="Search Users">
 </form>
 <br>
-<form method="post" action="listOfItems.jsp">
-<input type="search">
+<form method="post" action="RankingAlgorithm.jsp">
+<input type="text" name="itemName"/><br/><br/>
 <input type="submit" value="Search Items">
 </form>
 <br><br><br>
