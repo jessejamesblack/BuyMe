@@ -5,7 +5,7 @@
 <center><h1>BuyMe</h1></center>
 <center>
 <form method="post" action="login.jsp">
-Email:<input type="text" name="username"/><br/><br/>
+Username:<input type="text" name="username"/><br/><br/>
 Password:<input type="password" name="password"/><br/><br/>
 <input type="submit" value="Login"/>
 </form>
