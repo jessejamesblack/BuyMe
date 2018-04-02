@@ -6,7 +6,7 @@
 <center>
 <h1>Customer Representative Login Page</h1>
 <form method="post" action="CRlogin.jsp">
-Email: <input type="text" name="email"/><br/><br/>
+Username:<input type="text" name="username"/><br/><br/>
 Password: <input type="password" name="password"/><br/><br/>
 <input type="submit" value="Login"/>
 
