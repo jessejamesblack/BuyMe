@@ -1,12 +1,12 @@
 <%@ page import ="java.sql.*" %>
 <%
     try{
-        String email = request.getParameter("email");   
+        String username = request.getParameter("username");   
         String password = request.getParameter("password");
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");    
-        PreparedStatement pst = conn.prepareStatement("Select * from EndUser where email=? and pwd=?");
-        pst.setString(1, email);
+        PreparedStatement pst = conn.prepareStatement("Select * from EndUser where username=? and pwd=?");
+        pst.setString(1, username);
         pst.setString(2, password);
         ResultSet rs = pst.executeQuery();   
         
