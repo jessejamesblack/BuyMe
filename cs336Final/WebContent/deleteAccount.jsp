@@ -7,13 +7,13 @@ try{
     String password = request.getParameter("password");
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");    
-    PreparedStatement pst = conn.prepareStatement("SELECT * FROM EndUser WHERE username = ? AND email = ? AND pwd = ?"); 
+    PreparedStatement pst = conn.prepareStatement("SELECT * FROM Account WHERE username = ? AND email = ? AND pwd = ? AND accountType='E'"); 
     pst.setString(1, username);
     pst.setString(2, email);
     pst.setString(3, password);
     ResultSet rs = pst.executeQuery();
     if(rs.next()){
-    	PreparedStatement pst2 = conn.prepareStatement("DELETE FROM EndUser WHERE username = ?");
+    	PreparedStatement pst2 = conn.prepareStatement("DELETE FROM Account WHERE username = ?");
 	pst2.setString(1, username);
 	status = pst2.executeUpdate();
 	if(status>0){
