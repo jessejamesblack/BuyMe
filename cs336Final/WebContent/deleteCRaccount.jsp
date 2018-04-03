@@ -8,13 +8,13 @@ try{
     String CRusername = request.getParameter("CRusername");
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");    
-    PreparedStatement pst = conn.prepareStatement("SELECT * FROM Administrator WHERE username = ? AND email = ? AND pwd = ?"); 
+    PreparedStatement pst = conn.prepareStatement("SELECT * FROM Account WHERE username = ? AND email = ? AND pwd = ? and accountType='A'"); 
     pst.setString(1, username);
     pst.setString(2, email);
     pst.setString(3, password);
     ResultSet rs = pst.executeQuery();
     if(rs.next()){
-    	PreparedStatement pst2 = conn.prepareStatement("DELETE FROM CustomerRepresentative WHERE username = ?");
+    	PreparedStatement pst2 = conn.prepareStatement("DELETE FROM Account WHERE username = ? and accountType = 'C'");
 		pst2.setString(1, CRusername);
 		status = pst2.executeUpdate();
 	if(status>0){
