@@ -18,7 +18,7 @@ Item Category:
 <br>
 Item Manufacturer: <input type="text" name="manuf"><br>
 Item Name: <input type="text" name="name"><br>
-Closing Date: <input type="text" name="date"><br>
+Closing Date (YYYY-MM-DD H:M:S): <input type="text" name="date"><br>
 Reserve Price (optional): <input type="text" name="reserve"><br>
 Initial Price: <input type="text" name="initprice"><br>
 Increment Amount: <input type="text" name="increment"><br><br>
