@@ -80,7 +80,7 @@
       <br>
       <br>
 	 <% 
-	 if(max>=2){
+	 
 	 
 	 for(int e = lengthTable-1; e >= 0;e-- ){
 		  if(rank[e] >= (max*0.6)){
@@ -91,10 +91,7 @@
 			  //System.out.println(rank[e]);
 		  }
 	  }
-	 }else{
-		 out.println("No items found");
-		 
-	 }
+	
    } catch(Exception e){
           out.print("error");
           }
