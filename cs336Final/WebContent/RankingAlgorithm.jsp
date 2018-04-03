@@ -9,7 +9,7 @@
 	  
       String query = "SELECT * FROM Auction";
       
-      String itemName = request.getParameter("itemName");; //Name of the item we are searching for
+      String itemName = request.getParameter("itemName"); //Name of the item we are searching for
       
       ArrayList<String> arr = new ArrayList<String>();
       
@@ -26,6 +26,8 @@
 	  }
 	 
 	  ArrayList<String> substrings = new ArrayList<String>();
+	  
+	  
 	  
 	  int substringsLength = 0;
 	  
@@ -76,23 +78,26 @@
           arr.set(j+1,key2);
       }
       out.println("Items");%>
-	<br>
+      <br>
       ____________________
       <br>
       <br>
 	 <% 
-	 
+	
 	 
 	 for(int e = lengthTable-1; e >= 0;e-- ){
-		  if(rank[e] >= (max*0.6)){
-			  out.println(arr.get(e));%>
+		  if(rank[e] >= (max*0.75)){
+			  %>
+			  <form method="post" action = "itemRedirectPage.jsp">
+			  <input type="submit" value="<%=arr.get(e)%>" name = "poo">
+			  </form>
 			  <br>
 			  <br>
 			 <% //System.out.print(" ");
 			  //System.out.println(rank[e]);
 		  }
 	  }
-	
+	 
    } catch(Exception e){
           out.print("error");
           }
