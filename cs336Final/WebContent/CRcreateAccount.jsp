@@ -8,7 +8,7 @@
       
       Class.forName("com.mysql.jdbc.Driver");
       Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
-      PreparedStatement pst = conn.prepareStatement("INSERT INTO CustomerRepresentative VALUES(?,?,?,?)");
+      PreparedStatement pst = conn.prepareStatement("INSERT INTO Account VALUES(?,?,?,'C')");
       
       if(username == "" || email == "" || password == ""){
     	  status = 0;
@@ -17,7 +17,7 @@
         pst.setString(1, username);
         pst.setString(2, email);
         pst.setString(3, password);
-        pst.setString(4, "admin");
+       
         status = pst.executeUpdate();
       }
       if(status > 0){
