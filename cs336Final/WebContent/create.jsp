@@ -1,4 +1,3 @@
-<title>L</title>
 <%@ page import ="java.sql.*" %>
 <%
 int status = 0;
@@ -37,5 +36,8 @@ catch(Exception e){
 
 
 %>
+<br>
+<a href = "createauction.jsp">Return to Create Auction page</a><br>
+
 <br>
 <a href = "createauction.jsp">Return to Create Auction page</a><br>
