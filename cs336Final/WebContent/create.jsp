@@ -6,7 +6,12 @@ try{
     String manf = request.getParameter("manuf");
     String name = request.getParameter("name");
     String date = request.getParameter("date");
-    double reserve = Double.parseDouble(request.getParameter("reserve"));
+    double reserve;
+    if(request.getParameter("reserve") == ""){
+    	reserve = 0;
+    }else{
+        reserve = Double.parseDouble(request.getParameter("reserve"));
+    }
     double initprice = Double.parseDouble(request.getParameter("initprice"));
     double increment = Double.parseDouble(request.getParameter("increment"));
     
@@ -36,8 +41,3 @@ catch(Exception e){
 
 
 %>
-<br>
-<a href = "createauction.jsp">Return to Create Auction page</a><br>
-
-<br>
-<a href = "createauction.jsp">Return to Create Auction page</a><br>
