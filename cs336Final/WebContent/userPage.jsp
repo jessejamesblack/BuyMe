@@ -25,6 +25,6 @@
  </form>
 </div>
 
-
+<a href = "forum.jsp">Forums</a>
 </body>
 </html>

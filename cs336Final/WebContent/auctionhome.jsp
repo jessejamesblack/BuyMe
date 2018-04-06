@@ -26,6 +26,7 @@
 <br><br><br>
 <form method="post" action="logout.jsp">
 <input type="submit" value="Logout">
+<a href = "forum.jsp">Forums</a>
 </form>
 </body>
 </center>

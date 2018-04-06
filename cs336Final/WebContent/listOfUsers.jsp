@@ -10,5 +10,6 @@
 <body>
 <form method="post" action="userPage.jsp">
 <input type="submit" value="Login"/>
+<a href = "forum.jsp">Forums</a>
 </body>
 </html>

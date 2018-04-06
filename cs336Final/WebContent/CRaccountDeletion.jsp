@@ -10,6 +10,7 @@ Email Address:<input type="text" name="email"/><br/>
 Password:<input type="password" name="password"/><br/>
 Now enter the Username of the CR account you wish to delete: <input type="text" name="CRusername"><br/>
 <input type="submit" value="Delete"/>
+<a href = "forum.jsp">Forums</a>
 </form>
 </center>
 </html>

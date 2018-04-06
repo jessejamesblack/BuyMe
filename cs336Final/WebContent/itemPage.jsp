@@ -8,6 +8,6 @@
 <h1>Individual Item Page</h1>
 </head>
 <body>
-
+<a href = "forum.jsp">Forums</a>
 </body>
 </html>
