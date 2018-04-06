@@ -20,12 +20,13 @@
 </form>
 <br>
 <form method="post" action="RankingAlgorithm.jsp">
-<input type="text" name="itemName"/><br/><br/>
+<input type="text" name="itemName"/>
 <input type="submit" value="Search Items">
 </form>
 <br><br><br>
 <form method="post" action="logout.jsp">
-<input type="submit" value="Logout">
+<input type="submit" value="Logout"><br>
+<a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 </form>
 </body>

@@ -24,7 +24,8 @@
 
  </form>
 </div>
-
+<br>
+<a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 </body>
 </html>

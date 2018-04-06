@@ -9,7 +9,8 @@
 </head>
 <body>
 <form method="post" action="itemPage.jsp">
-<input type="submit" value="Login"/>
+<input type="submit" value="Login"/><br>
+<a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 </body>
 </html>

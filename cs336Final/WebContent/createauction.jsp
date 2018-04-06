@@ -22,7 +22,8 @@ Closing Date (YYYY-MM-DD H:M:S): <input type="text" name="date"><br>
 Reserve Price (optional): <input type="text" name="reserve"><br>
 Initial Price: <input type="text" name="initprice"><br>
 Increment Amount: <input type="text" name="increment"><br><br>
-<input type="submit" value="Begin Auction!">
+<input type="submit" value="Begin Auction!"><br>
+<a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 </form>
 </body>

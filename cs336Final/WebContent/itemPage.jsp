@@ -7,7 +7,8 @@
 <title>Individual Item Page</title>
 <h1>Individual Item Page</h1>
 </head>
-<body>
+<body><br>
+<a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 </body>
 </html>
