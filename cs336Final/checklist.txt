@@ -7,16 +7,16 @@ II. Auctions
     [X] set a hidden minimum price (reserve)
     [] a buyer should be able to bid
         [] manually
-            [] alert the buyer that a higher bid has been placed
+            [] alert the buyer that a higher bid has been placed (via email? page alert?) *trigger causes alert
               [] let the buyer set a new bid
         [] with automatic bidding
             [] set a secret upper limit
-            [] put in a higher bid automatically for the user in case someone bids higher
-            [] alert the buyer in case someone bids more than your upper limit
-   [] when the closing date and time has come
+            [] put in a higher bid automatically for the user in case someone bids higher *trigger
+            [] alert the buyer in case someone bids more than your upper limit *trigger same as manual
+   [] when the closing date and time has come *via trigger?
         [] check if the seller has set a reserve
              [] if yes: if the reserve is higher than the last bid none is the winner.
-                         if the maximum bid meets the reserve, it will automatically increase to meet that price.
+                         if the maximum bid meets the reserve, it will automatically increase to meet that price. *trigger
              [] if no: whoever has the higher bid is the winner
   [**] ability to extend the kinds of items being sold, and their properties, without modifying the code or database schema
 
