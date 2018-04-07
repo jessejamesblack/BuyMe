@@ -6,7 +6,7 @@
 <title>Alerts</title>
 </head>
 <center>
-<h1><%=session.getAttribute("userid")%>'s Alerts</h1>
+<h1><%=session.getAttribute("USERNAME")%>'s Alerts</h1>
 </form>
 </center>
 </html>
