@@ -15,7 +15,7 @@
 <br>
 <br>
 <form method="post" action="listOfUsers.jsp">
-<input type="search">
+<input type="text">
 <input type="submit" value="Search Users">
 </form>
 <br>
