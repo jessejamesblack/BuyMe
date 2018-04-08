@@ -38,14 +38,14 @@ try {
 	ResultSet rs = pst.executeQuery();
 	
 	out.print("<table>");
-	out.print("<tr><th>Triggered Alerts</th></tr>");
+	out.print("<tr><th>Triggered Alerts</th><th>Auction#</th><th>Item</th></tr>");
 	while(rs.next()){
 		out.print("<tr>");
 		out.print("<td>");
 		out.print(rs.getString("alert_number"));
 		out.print("</td>");
 		out.print("<td>");
-		out.print("<form action='individualItemPage.jsp'><input type='submit' value='" + rs.getString("auction_number") + "' name='item'></form>");
+		out.print("<form action='itemPage.jsp'><input type='submit' value='" + rs.getString("auction_number") + "' name='item'></form>");
 		out.print("</td>");
 		out.print("<td>");
 		out.print(rs.getString("item_name"));
@@ -58,7 +58,7 @@ try {
 	ResultSet rs2 = pst2.executeQuery();
 	
 	out.print("<table>");
-	out.print("<tr><th>Active Alerts</th></tr>");
+	out.print("<tr><th>Active Alerts</th><th>Manuf.</th><th>Item</th></tr>");
 	while(rs2.next()){
 		out.print("<tr>");
 		out.print("<td>");
