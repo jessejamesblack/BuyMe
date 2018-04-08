@@ -13,7 +13,8 @@ Enter the following information:<br>
 Item Category: 
 <select name="Item Category" size=1>
 			<option value="Phone">Cell Phone</option>
-			<option value="Laptop">Laptop</option>
+			<option value="Computer">Computer</option>
+			<option value="Console">Console</option>
 		</select>
 <br>
 Item Manufacturer: <input type="text" name="manuf"><br>
