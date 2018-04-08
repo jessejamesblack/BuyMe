@@ -2,7 +2,7 @@
 <head>
 <title>Item Page</title>
 </head>
-<center><h1><% String itemName = request.getParameter("poo");
+<center><h1><% String itemName = request.getParameter("item");
 out.print(itemName);%>'s page</h1></center>
 <center>
 
