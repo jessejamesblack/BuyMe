@@ -21,7 +21,7 @@ try{
     
 		out.print("<table>");
     	while (rs.next()) {%>
-    		<form method="post" action = "userPage.jsp">
+    		<form method="post" action = "individualUserPage.jsp">
 			  <input type="submit" value="<%out.print(rs.getString("username"));%>" name = "user">
 			  </form>
 			  <br>
