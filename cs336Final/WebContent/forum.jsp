@@ -18,11 +18,9 @@
         %>
 
         <table BORDER="1">
-            
 
         </table>
-             
-                  
+
                       <p>Filter by Subject:</p>
                       <select name="sel">
 							<option value="purchases">Purchases</option>
@@ -33,14 +31,7 @@
 						<br>
 					
                       <input type="submit" value="Submit" />
-                     
-              
-               
-         
-                  
-                    
-            
-          
+                           
  </form>       
         <a href='success.jsp'>Go Back to Previous Page</a>
     </body>
