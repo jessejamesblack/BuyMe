@@ -88,7 +88,7 @@
 	 for(int e = lengthTable-1; e >= 0;e-- ){
 		  if(rank[e] >= (max*0.75)){
 			  %>
-			  <form method="post" action = "itemRedirectPage.jsp">
+			  <form method="post" action = "individualItemPage.jsp">
 			  <input type="submit" value="<%=arr.get(e)%>" name = "poo">
 			  </form>
 			  <br>

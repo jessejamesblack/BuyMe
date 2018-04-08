@@ -1,8 +1,9 @@
 <html>
 <head>
-<title><%=session.getAttribute("itemid")%>'s page</title>
+<title>Item Page</title>
 </head>
-<center><h1><%=session.getAttribute("userid")%>'s page</h1></center>
+<center><h1><% String itemName = request.getParameter("poo");
+out.print(itemName);%>'s page</h1></center>
 <center>
 
 <br>
