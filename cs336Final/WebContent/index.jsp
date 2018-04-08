@@ -20,6 +20,7 @@ Password:<input type="password" name="password"/><br/><br/>
 <br>
 <a href = "registerhome.jsp">Register</a>
 <br><br>
+<a href = "resetpassword.jsp">Reset Password</a><br>
 <a href = "adminloginhome.jsp">Administrator Login Page</a><br>
 <a href = "CRloginhome.jsp">Customer Representative Login Page</a><br>
 <a href = "AccountDeletion.jsp">Account Deletion Page</a><br><br>
