@@ -89,7 +89,7 @@
 		  if(rank[e] >= (max*0.75)){
 			  %>
 			  <form method="post" action = "individualItemPage.jsp">
-			  <input type="submit" value="<%=arr.get(e)%>" name = "poo">
+			  <input type="submit" value="<%=arr.get(e)%>" name = "item">
 			  </form>
 			  <br>
 			  <br>
