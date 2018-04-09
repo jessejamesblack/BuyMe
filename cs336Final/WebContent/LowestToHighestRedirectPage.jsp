@@ -47,7 +47,7 @@ for (int i=1; i<n; ++i)
 
 for(int i = 0; i<passArray.length;i++){
 	
-	if(passArray[i]!=null && Float.parseFloat(passPrice[i]) != -1 ){
+	if(passArray[i]!=null && !(passPrice[i].equals("-1")) && !(passID[i].equals("-1"))){
 	
 	
 	%>	
