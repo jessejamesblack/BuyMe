@@ -20,6 +20,7 @@ String query = "SELECT * FROM Auction A WHERE A.item_manufacturer = '" + request
 
 String[] passArray = request.getParameterValues("passArray");
 String[] passPrice = request.getParameterValues("passPrice");
+String[] passID = request.getParameterValues("passID");
 
 
 Statement stmt = null;
@@ -45,14 +46,14 @@ for(int i = 0; i<passArray.length;i++){
 	
 	%>	
 			<form method="post" action = "itemRedirectPage.jsp">
-			  <input type="submit" value="<%=passArray[i]%>" name = "poo">
+			  <input type="submit" value="<%=passID[i]%>" name = "poo">, <%out.print(passArray[i]);%>, initial price <%out.print(passPrice[i]);%>
 			  </form>
 			  <br>
 			  <br>
 	<%	}else{
 		passArray[i] = null;
 		passPrice[i] = "-1";
-		
+		passID[i] = "-1";
 	}
 }
 %>
@@ -74,11 +75,11 @@ for(int i = 0; i<passArray.length;i++){
       
       
 <% 
-		  		 if(request.getParameter("manu?").equals("NO")){
+		  		 if(request.getParameter("cata?").equals("NO")){
 		  		%>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
 		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
 		  		<%}%>
 		  		<% 
 		  		 if(request.getParameter("low?").equals("NO")){
@@ -104,6 +105,7 @@ for(int i = 0; i<passArray.length;i++){
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  }
 		  %> 
@@ -115,11 +117,11 @@ for(int i = 0; i<passArray.length;i++){
 	
 	
 	<% 
-		  		 if(request.getParameter("manu?").equals("NO")){
+		  		 if(request.getParameter("cata?").equals("NO")){
 		  		%>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
 		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
 		  		<%}%>
 		  		<% 
 		  		 if(request.getParameter("low?").equals("NO")){
@@ -145,6 +147,7 @@ for(int i = 0; i<passArray.length;i++){
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  }
 		  %> 
@@ -155,11 +158,11 @@ for(int i = 0; i<passArray.length;i++){
 	<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
 
 		<% 
-		  		 if(request.getParameter("manu?").equals("NO")){
+		  		 if(request.getParameter("cata?").equals("NO")){
 		  		%>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
 		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
 		  		<%}%>
 		  		<% 
 		  		 if(request.getParameter("low?").equals("NO")){
@@ -185,6 +188,7 @@ for(int i = 0; i<passArray.length;i++){
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  }
 		  %> 
@@ -204,11 +208,11 @@ for(int i = 0; i<passArray.length;i++){
       
       
       <% 
-		  		 if(request.getParameter("manu?").equals("NO")){
+		  		 if(request.getParameter("cata?").equals("NO")){
 		  		%>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
 		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
 		  		<%}%>
 		  		<% 
 		  		 if(request.getParameter("low?").equals("NO")){
@@ -237,7 +241,7 @@ for(int i = 0; i<passArray.length;i++){
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
-		 
+		 <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  
 		  <% 
 		  
@@ -259,11 +263,11 @@ for(int i = 0; i<passArray.length;i++){
       
       
       <% 
-		  		 if(request.getParameter("manu?").equals("NO")){
+		  		 if(request.getParameter("cata?").equals("NO")){
 		  		%>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
 		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  		<Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
 		  		<%}%>
 		  		<% 
 		  		 if(request.getParameter("low?").equals("NO")){
@@ -291,7 +295,9 @@ for(int i = 0; i<passArray.length;i++){
       <br>
      
       _________________
-       <%} %>
+       <%} 
+      conn.close();
+       %>
       <br>
 	 
 	 
