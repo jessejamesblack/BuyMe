@@ -18,7 +18,7 @@
 	        Statement st = conn.createStatement();
             String src = (String)session.getAttribute("USERNAME");
             ResultSet resultset = 
-                st.executeQuery("SELECT * FROM questions where questions.a_text !='Answer Pending'") ; 
+                st.executeQuery("SELECT * FROM Question") ; 
         %>
 
         <table BORDER="1">
@@ -28,14 +28,15 @@
                 <th>Question</th>
                 <th>Answer</th>
             </tr>
-            <% while(resultset.next()){ %>
-            <tr>
-                <td> <%= resultset.getString(2) %></td>
-                <td> <%= resultset.getString(3) %></td>
-                <td> <%= resultset.getString(4) %></td>
-                <td> <%= resultset.getString(5) %></td>
-            </tr>
-            <% } %>
+            
+            <c:forEach var="row" items="${result.rows}">
+			<tr>
+				<td><c:out value="${row.time_placed}" /></td>
+				<td><c:out value="${row.offer}" /></td>
+				<td><c:out value="${row.autobid}" /></td>
+				<td><c:out value="${row.current_highest_bid}" /></td>
+			</tr>
+		</c:forEach>
         </table>                          
  </form>       
         <a href='success.jsp'>Go Back to Previous Page</a>
