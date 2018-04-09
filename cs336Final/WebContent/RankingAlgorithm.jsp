@@ -122,6 +122,10 @@
 			  <br>
 			 <% //System.out.print(" ");
 			  //System.out.println(rank[e]);
+		  }else{
+		  passArray[e] = null;
+		  passPrice[e] = -1;
+		  
 		  }
 	  }
 	 %>
