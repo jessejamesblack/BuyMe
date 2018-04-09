@@ -5,10 +5,10 @@
 <center><h1><% String itemName = request.getParameter("item");
 out.print(itemName);%>'s page</h1></center>
 <center>
-
-<br>
-Bid Amount<input type="text" name="itemName"/>
-Max Price Willing to Pay<input type="text" name="itemName"/> 
+<%session.setAttribute("AUCTION", itemName); %>
+<br><form method="post" action="bid.jsp">
+Bid Amount<input type="text" name="bidamount"/>
+Max Price Willing to Pay<input type="text" name="maxbid"/> 
 <input type="submit" value="Bid!"/>
 </form>
 
@@ -50,3 +50,4 @@ Max Price Willing to Pay<input type="text" name="itemName"/>
 <a href = "forum.jsp">Forums</a>
 </html>
 </center>
+
