@@ -122,7 +122,7 @@
 			  passPrice[e] = price.get(e);
 			  passID[e] = id.get(e);
 			  %>
-			  <form method="post" action = "itemRedirectPage.jsp">
+			  <form method="post" action = "individualItemPage.jsp">
 			  <input type="submit" value="<%=id.get(e)%>" name = "poo">, <%out.print(arr.get(e)); %>, initial price <%out.print(price.get(e));%>
 			  </form>
 			  <br>
