@@ -15,23 +15,28 @@
         <% 
 	        Class.forName("com.mysql.jdbc.Driver");
 	        Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
+	        Statement st = conn.createStatement();
+            String src = (String)session.getAttribute("USERNAME");
+            ResultSet resultset = 
+                st.executeQuery("SELECT * FROM questions where questions.a_text !='Answer Pending'") ; 
         %>
 
         <table BORDER="1">
-
-        </table>
-
-                      <p>Filter by Subject:</p>
-                      <select name="sel">
-							<option value="purchases">Purchases</option>
-							<option value="returns">Returns</option>
-							<option value="payment">Payment</option>
-							<option value="account">Account</option>
-						</select>
-						<br>
-					
-                      <input type="submit" value="Submit" />
-                           
+			<tr>
+                <th>Username</th>
+                <th>Subject</th>
+                <th>Question</th>
+                <th>Answer</th>
+            </tr>
+            <% while(resultset.next()){ %>
+            <tr>
+                <td> <%= resultset.getString(2) %></td>
+                <td> <%= resultset.getString(3) %></td>
+                <td> <%= resultset.getString(4) %></td>
+                <td> <%= resultset.getString(5) %></td>
+            </tr>
+            <% } %>
+        </table>                          
  </form>       
         <a href='success.jsp'>Go Back to Previous Page</a>
     </body>
