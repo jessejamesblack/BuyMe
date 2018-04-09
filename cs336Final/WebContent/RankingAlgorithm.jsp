@@ -13,6 +13,7 @@
       
       ArrayList<String> arr = new ArrayList<String>();
       ArrayList<Float> price = new ArrayList<Float>();
+    	ArrayList<Integer> id = new ArrayList<Integer>();
 	  Statement stmt = null;
 	  stmt = conn.createStatement();
 	  
@@ -23,6 +24,7 @@
 		  store = result.getString("item_name");
 		  arr.add(store);
 		  price.add(result.getFloat("init_price"));
+		  id.add(result.getInt("auction_number"));
 		  lengthTable++;
 	  }
 	 
@@ -67,6 +69,7 @@
           int key = rank[i];
           String key2 = arr.get(i);
           float key3 = price.get(i);
+          int key4 = id.get(i);
           int j = i-1;
 
           
@@ -75,11 +78,13 @@
               rank[j+1] = rank[j];
               arr.set(j+1, arr.get(j));
               price.set(j+1, price.get(j));
+              id.set(j+1, id.get(j));
               j = j-1;
           }
           rank[j+1] = key;
           arr.set(j+1,key2);
           price.set(j+1,key3);
+          id.set(j+1,key4);
       }
       
       
@@ -108,24 +113,26 @@
 	 <% 
 	 String[] passArray = new String[lengthTable];
 	 float[] passPrice = new float[lengthTable];
-	 
+	 int[] passID = new int[lengthTable];
 	 
 	 for(int e = lengthTable-1; e >= 0;e-- ){
 		  if(rank[e] >= (max*0.75)){
+			  
 			  passArray[e] = arr.get(e);
 			  passPrice[e] = price.get(e);
+			  passID[e] = id.get(e);
 			  %>
 			  <form method="post" action = "itemRedirectPage.jsp">
-			  <input type="submit" value="<%=arr.get(e)%>" name = "poo">, initial price <%out.print(price.get(e));%>
+			  <input type="submit" value="<%=id.get(e)%>" name = "poo">, <%out.print(arr.get(e)); %>, initial price <%out.print(price.get(e));%>
 			  </form>
 			  <br>
 			  <br>
 			 <% //System.out.print(" ");
 			  //System.out.println(rank[e]);
 		  }else{
-		  passArray[e] = null;
-		  passPrice[e] = -1;
-		  
+			  passArray[e] = null;
+			  passPrice[e] = -1;
+			  passID[e] = -1;
 		  }
 	  }
 	 %>
@@ -153,6 +160,7 @@
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  }
 		  %>
@@ -184,6 +192,7 @@
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  }
 		  %> 
@@ -204,6 +213,7 @@
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  
 		  <% 
 		  
@@ -225,7 +235,7 @@
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
-		  
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  
 	  }
@@ -250,7 +260,7 @@
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		 <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
-		  
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  
 	  }
@@ -276,7 +286,7 @@
       <br>
 	 
 	 
-	 <%
+	 <% conn.close();
 	 
    } catch(Exception e){
 	   e.printStackTrace();
