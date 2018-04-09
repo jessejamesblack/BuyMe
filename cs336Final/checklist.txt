@@ -6,11 +6,11 @@ II. Auctions
     [X] set closing date and time
     [X] set a hidden minimum price (reserve)
     [] a buyer should be able to bid
-        [] manually
-            [] alert the buyer that a higher bid has been placed (via email? page alert?) *trigger causes alert
-              [] let the buyer set a new bid
+        [X] manually
+            [X] alert the buyer that a higher bid has been placed (via email? page alert?) *trigger causes alert
+              [X] let the buyer set a new bid
         [] with automatic bidding
-            [] set a secret upper limit
+            [X] set a secret upper limit
             [] put in a higher bid automatically for the user in case someone bids higher *trigger
             [] alert the buyer in case someone bids more than your upper limit *trigger same as manual
    [] when the closing date and time has come *via trigger?
@@ -21,9 +21,9 @@ II. Auctions
   [**] ability to extend the kinds of items being sold, and their properties, without modifying the code or database schema
 
 III Browsing and advanced search functionality
-    [] let people browse on the items and see the status of the current bidding
-    [] sort by different criteria (by type, bidding price etc.)
-    [] search the list of items by various criteria.
+    [X] let people browse on the items and see the status of the current bidding
+    [X] sort by different criteria (by type, bidding price etc.)
+    [X] search the list of items by various criteria.
     [*X] let user set an alert for specific items (s)he is interested in
 
 IV Customer representatives and admin functions
@@ -39,7 +39,7 @@ IV Customer representatives and admin functions
             [] best-selling items
                [] best buyers
     [] user question answering
-        []create a page for users to ask questions
+        [X]create a page for users to ask questions
         [] a user can post a question
         [] a user can search and browse questions and answers
         [] a customer representative:
