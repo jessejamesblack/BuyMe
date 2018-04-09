@@ -40,7 +40,7 @@ while(result.next()){
 
 
 for(int i = 0; i<passArray.length;i++){
-	if(passArray[i]!=null && Float.parseFloat(passPrice[i]) != -1 && arr.contains(passArray[i])){
+	if(passArray[i]!=null && !(passPrice[i].equals("-1")) && arr.contains(passArray[i]) &&!(passID[i].equals("-1"))){
 	
 	
 	%>	
