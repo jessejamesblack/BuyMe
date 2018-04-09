@@ -11,7 +11,7 @@
 		
 	    Class.forName("com.mysql.jdbc.Driver").newInstance();
 	    Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
-	    PreparedStatement pst = conn.prepareStatement("INSERT INTO Question VALUES(?,?,?,?)");
+	    PreparedStatement pst = conn.prepareStatement("INSERT INTO Question(subject,question,asker,answer) VALUES (?, ?, ?, ?)");
 	    
 	    if(subject == "" || question == "" || asker == ""){
 	  	  status = 0;
