@@ -12,7 +12,7 @@
       String itemName = request.getParameter("itemName"); //Name of the item we are searching for
       
       ArrayList<String> arr = new ArrayList<String>();
-      
+      ArrayList<Float> price = new ArrayList<Float>();
 	  Statement stmt = null;
 	  stmt = conn.createStatement();
 	  
@@ -22,6 +22,7 @@
 	  while(result.next()){
 		  store = result.getString("item_name");
 		  arr.add(store);
+		  price.add(result.getFloat("init_price"));
 		  lengthTable++;
 	  }
 	 
@@ -65,6 +66,7 @@
       {
           int key = rank[i];
           String key2 = arr.get(i);
+          float key3 = price.get(i);
           int j = i-1;
 
           
@@ -72,24 +74,49 @@
           {
               rank[j+1] = rank[j];
               arr.set(j+1, arr.get(j));
+              price.set(j+1, price.get(j));
               j = j-1;
           }
           rank[j+1] = key;
           arr.set(j+1,key2);
+          price.set(j+1,key3);
       }
-      out.println("Items");%>
+      
+      
+      String query2 = "SELECT DISTINCT item_manufacturer FROM Auction";
+      ResultSet result2 = stmt.executeQuery(query2);
+	  String store2;
+	  
+	  
+      
+      
+      %> 
+      
+      
       <br>
-      ____________________
+      Search Results
       <br>
       <br>
+      ________
+      <br>
+      <br>
+      
+      
+      
+      
+      
 	 <% 
-	
+	 String[] passArray = new String[lengthTable];
+	 float[] passPrice = new float[lengthTable];
+	 
 	 
 	 for(int e = lengthTable-1; e >= 0;e-- ){
 		  if(rank[e] >= (max*0.75)){
+			  passArray[e] = arr.get(e);
+			  passPrice[e] = price.get(e);
 			  %>
-			  <form method="post" action = "individualItemPage.jsp">
-			  <input type="submit" value="<%=arr.get(e)%>" name = "item">
+			  <form method="post" action = "itemRedirectPage.jsp">
+			  <input type="submit" value="<%=arr.get(e)%>" name = "poo">, initial price <%out.print(price.get(e));%>
 			  </form>
 			  <br>
 			  <br>
@@ -97,9 +124,159 @@
 			  //System.out.println(rank[e]);
 		  }
 	  }
+	 %>
+	 <br>
+      Filter By
+      <br>
+      <br>
+      Manufacturers
+      <br>
+      _________________
+      <br>
+      <br>
+      <%
+      while(result2.next()){
+		  store2 = result2.getString("item_manufacturer");
+		  %>
+		  <form method="post" action = "manufacturerRedirectPage.jsp">
+		  <Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "low?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
+		  
+		  <%
+		  for(int i = 0; i < passArray.length; i++){
+		  %>
+		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
+		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <% 
+		  }
+		  %>
+			<input type="submit" value="<%=store2%>" name = "poo">
+			  </form>
+		  
+		  
+		  <% 
+		  
+	  }
+      
+      %>
+      <br>
+      <br>
+      Item Catagories
+      <br>
+      _________________
+      <br>
+      <br>
+      <form method="post" action = "itemCatagoriesRedirectPage.jsp">
+      <Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "low?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
+   
+		  
+		  <%
+		  for(int i = 0; i < passArray.length; i++){
+		  %>
+		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
+		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <% 
+		  }
+		  %> 
+		  
+		
+			<input type="submit" value="<%="Console"%>" name = "poo">
+			  </form>
+			  
+	<form method="post" action = "itemCatagoriesRedirectPage.jsp">
+	 <Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "low?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
+		 
+		  
+		  <%
+		  for(int i = 0; i < passArray.length; i++){
+		  %>
+		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
+		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  
+		  <% 
+		  
+	  }
+      
+      %>
+			<input type="submit" value="<%="Computer"%>" name = "poo">
+			  </form>
+			  
+	<form method="post" action = "itemCatagoriesRedirectPage.jsp">
+	 <Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "low?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
+		 
+		  
+		  <%
+		  for(int i = 0; i < passArray.length; i++){
+		  %>
+		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
+		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  
+		  <% 
+		  
+	  }
+      
+      %>
+			<input type="submit" value="<%="Phone"%>" name = "poo">
+			  </form>
+      
+      <br>
+      _________________
+      <br>
+      <br>
+      <form method="post" action = "LowestToHighestRedirectPage.jsp">
+      <Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "low?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
+      
+		  
+		  <%
+		  for(int i = 0; i < passArray.length; i++){
+		  %>
+		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
+		 <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  
+		  <% 
+		  
+	  }
+      
+      %>
+			<input type="submit" value="<%="Lowest to Highest"%>" name = "poo">
+			  </form>
+      <br>
+      _________________
+      <br>
+      <br>
+      
+      <form method="post" action = "itemCatagoriesRedirectPage.jsp">
+      <Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "low?" value = "<%="YES"%>">
+		  <Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
+			<input type="submit" value="<%="Closing Bids"%>" name = "poo">
+			  </form>
+      <br>
+      <br>
+      _________________
+      <br>
+	 
+	 
+	 <%
 	 
    } catch(Exception e){
-          out.print("error");
+	   e.printStackTrace();
+       out.println(e);
           }
       
       
