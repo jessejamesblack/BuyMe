@@ -11,7 +11,7 @@
 
     <body>
         <h1>Forum</h1>
-<form method="post" action="vqna.jsp">
+<form method="post" action="forum.jsp">
         <% 
 	        Class.forName("com.mysql.jdbc.Driver");
 	        Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
@@ -28,17 +28,17 @@
                 <th>Question</th>
                 <th>Answer</th>
             </tr>
-            
-            <c:forEach var="row" items="${result.rows}">
-			<tr>
-				<td><c:out value="${row.time_placed}" /></td>
-				<td><c:out value="${row.offer}" /></td>
-				<td><c:out value="${row.autobid}" /></td>
-				<td><c:out value="${row.current_highest_bid}" /></td>
-			</tr>
-		</c:forEach>
+            <% while(resultset.next()){ %>
+            <tr>
+                <td> <%= resultset.getString(5) %></td>
+                <td> <%= resultset.getString(2) %></td>
+                <td> <%= resultset.getString(3) %></td>
+                <td> <%= resultset.getString(4) %></td>
+            </tr>
+            <% } %>
         </table>                          
- </form>       
-        <a href='success.jsp'>Go Back to Previous Page</a>
+ </form> 
+ 	<a href='forum_ask_question.jsp'>Ask a question</a><br>  
+        <a href='success.jsp'>User Page</a>
     </body>
 </html>
