@@ -2,7 +2,11 @@
 <%@ page import= "java.util.*" %>
 <%@ page import = "java.lang.*" %>
 
-
+<% Class.forName("com.mysql.jdbc.Driver");
+       Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
+       
+       Statement stmt = null;
+       stmt = conn.createStatement();%>
 
  <br>
       Search Results
@@ -16,13 +20,16 @@
 
 String[] passArray = request.getParameterValues("passArray");
 String[] passPrice = request.getParameterValues("passPrice");
+String[] passID = request.getParameterValues("passID");
 
 int n=passArray.length;
 
 for (int i=1; i<n; ++i)
 {
+	
     float key = Float.parseFloat(passPrice[i]);
     String key2 = passArray[i];
+    String key3 = passID[i];
     int j = i-1;
 
     
@@ -30,25 +37,29 @@ for (int i=1; i<n; ++i)
     {
         passArray[j+1] = passArray[j];
         passPrice[j+1] = passPrice[j];
+        passID[j+1] = passID[j];
         j = j-1;
     }
     passArray[j+1] = key2;
     passPrice[j+1] = passPrice[i];
+    passID[j+1] = key3;
 }
 
 for(int i = 0; i<passArray.length;i++){
+	
 	if(passArray[i]!=null && Float.parseFloat(passPrice[i]) != -1 ){
 	
 	
 	%>	
 			<form method="post" action = "itemRedirectPage.jsp">
-			  <input type="submit" value="<%=passArray[i]%>" name = "poo">, initial price <%out.print(passPrice[i]);%>
+			  <input type="submit" value="<%=passID[i]%>" name = "poo">, <%out.print(passArray[i]); %>, initial price <%out.print(passPrice[i]);%>
 			  </form>
 			  <br>
 			  <br>
 	<%	}else{
 		passArray[i] = null;
 		passPrice[i] = "-1";
+		passID[i] = "-1";
 		
 	}
 }
@@ -73,11 +84,7 @@ for(int i = 0; i<passArray.length;i++){
       <br>
        <%
        
-       Class.forName("com.mysql.jdbc.Driver");
-       Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
        
-       Statement stmt = null;
-       stmt = conn.createStatement();
        
        
        
@@ -114,6 +121,7 @@ for(int i = 0; i<passArray.length;i++){
 		  		%>
 		  		<Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  		<Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  		<Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  		<% 
 		  		}
 		  		%>
@@ -123,7 +131,7 @@ for(int i = 0; i<passArray.length;i++){
 		  
 		  
 		  		<%  
-		  
+		  		
       		}
       		
       		%>
@@ -173,6 +181,7 @@ for(int i = 0; i<passArray.length;i++){
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  }
 		  %> 
@@ -214,6 +223,7 @@ for(int i = 0; i<passArray.length;i++){
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  }
 		  %> 
@@ -256,6 +266,7 @@ for(int i = 0; i<passArray.length;i++){
 		  %>
 		  <Input type = "Hidden" name = "passArray" value = "<%= passArray[i] %>">
 		  <Input type = "Hidden" name = "passPrice" value = "<%= passPrice[i] %>">
+		  <Input type = "Hidden" name = "passID" value = "<%= passID[i] %>">
 		  <% 
 		  }
 		  %> 
@@ -308,5 +319,8 @@ for(int i = 0; i<passArray.length;i++){
     
       _________________
       
-      <%} %>
+      <%} 
+      
+      conn.close();
+      %>
       <br>
