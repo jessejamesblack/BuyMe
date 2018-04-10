@@ -14,7 +14,7 @@ table, th, td {
 }
 </style>
 </head>
-</center>
+
 <body>
 <%
 try{
@@ -25,7 +25,7 @@ try{
     pst.setString(1, user);
     ResultSet rs = pst.executeQuery();
 	out.print("<table>");
-	out.print("<tr><th>List of Auctions as Seller</th></tr>");
+	out.print("<tr><th colspan = '2'>List of Auctions as Seller</th></tr><tr><th>Auction#</th><th>Item</th></tr>");
     while(rs.next()){
     	out.print("<tr>");
 		out.print("<td>");
@@ -33,24 +33,50 @@ try{
 		out.print("</td>");
 		out.print("<td>");
 		out.print(rs.getString("item_name"));
-		out.print("</td>");
+		out.print("</td></tr>");
     }
-    out.print("<br>");
-	conn.close();
+    out.print("</table><br>");
+    PreparedStatement pst2 = conn.prepareStatement("SELECT distinct Bid.auction_number, item_name FROM Auction, Bid WHERE Bid.auction_number = Auction.auction_number AND Bid.username = ?");
+    pst2.setString(1, user);
+    ResultSet rs2 = pst2.executeQuery();
+    out.print("<table>");
+    out.print("<tr><th colspan = '2'>List of Auctions as Buyer</th></tr><tr><th>Auction#</th><th>Item</th></tr>");
+    while(rs2.next()){
+    	out.print("<tr>");
+		out.print("<td>");
+		out.print("<form action='individualItemPage.jsp'><input type='submit' value='" + rs2.getString("auction_number") + "' name='item'></form>");
+		out.print("</td>");
+		out.print("<td>");
+		out.print(rs2.getString("item_name"));
+		out.print("</td></tr>");
+    }
+    out.print("</table><br>");
+    PreparedStatement pst3 = conn.prepareStatement("SELECT A.auction_number, B.bid_amount, A.item_name FROM Bid B, Auction A where A.auction_number = B.auction_number and NOW() > A.date_time_close and B.username = ? and B.bid_amount = (SELECT MAX(bid_amount) FROM Bid where Bid.auction_number = A.auction_number)");
+	pst3.setString(1, user);
+	ResultSet rs3 = pst3.executeQuery();
+	out.print("<table>");
+    out.print("<tr><th colspan = '3'>Successful Bids</th></tr><tr><th>Auction#</th><th>Amount</th><th>Item</th></tr>");
+    while(rs3.next()){
+    	out.print("<tr>");
+		out.print("<td>");
+		out.print("<form action='individualItemPage.jsp'><input type='submit' value='" + rs3.getString("auction_number") + "' name='item'></form>");
+		out.print("</td>");
+		out.print("<td>");
+		out.print(rs3.getString("bid_amount"));
+		out.print("</td>");
+		out.print("<td>");
+		out.print(rs3.getString("item_name"));
+		out.print("</td></tr>");
+    }
+	out.print("</table>");
     
-}catch(Exception e){}
+    conn.close();
+    
+}catch(Exception e){out.print(e);}
 
 %><br>
-<table>
-<tr>
-    <th>Successful Bids</th>
-</tr>
-</table><br>
-<table>
-<tr>
-  <th>List of Auctions As Buyer</th>
-</tr>
-</table><br>
 
+<br>
+</center>
 </body>
 </html>
