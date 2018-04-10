@@ -29,7 +29,7 @@ try{
     while(rs.next()){
     	out.print("<tr>");
 		out.print("<td>");
-		out.print("<form action='itemPage.jsp'><input type='submit' value='" + rs.getString("auction_number") + "' name='item'></form>");
+		out.print("<form action='individualItemPage.jsp'><input type='submit' value='" + rs.getString("auction_number") + "' name='item'></form>");
 		out.print("</td>");
 		out.print("<td>");
 		out.print(rs.getString("item_name"));
