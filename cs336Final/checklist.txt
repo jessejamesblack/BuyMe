@@ -40,10 +40,10 @@ IV Customer representatives and admin functions
                [] best buyers
     [] user question answering
         [X]create a page for users to ask questions
-        [] a user can post a question
+        [X] a user can post a question
         [] a user can search and browse questions and answers
-        [] a customer representative:
-            [] answers to questions of users
+        [X] a customer representative:
+            [X] answers to questions of users
     [] modifies any information (if this is reasonable)
     [] removes bids (that abide to specific rules)
     [] remove illegal auctions
