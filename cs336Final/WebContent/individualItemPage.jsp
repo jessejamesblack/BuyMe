@@ -18,6 +18,7 @@ Max Price Willing to Pay<input type="text" name="maxbid"/>
     Statement st = conn.createStatement();
     ResultSet rs = st.executeQuery("SELECT * FROM Auction WHERE auction_number = " + item);
     if(rs.next()){
+    	out.println("Initial Price: $" + rs.getDouble("init_price") + "<br>");
     	out.print("Minimum Bid Increment: $" + rs.getDouble("increment"));
     }
     %><br><br>
