@@ -7,7 +7,7 @@
         <title>Reset Member Password</title>
 </head>
 <body>
-<form method="post" action="resetpassword_jsp.jsp">
+<form method="post" action="resetpassword2.jsp">
 <table border="1" width="30%" cellpadding="5">
               <thead>
                   <tr>
@@ -26,8 +26,8 @@
                       <td><input type="text" name="pass" value="" /></td>
                     </tr>
                     <tr>
+                      <td></td>
                       <td><input type="submit" value="Submit" /></td>
-                      <td><input type="reset" value="Reset" /></td>
                     </tr>
                  
               </tbody>
