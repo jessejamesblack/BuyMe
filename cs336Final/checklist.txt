@@ -12,8 +12,8 @@ II. Auctions
         [] with automatic bidding
             [X] set a secret upper limit
             [] put in a higher bid automatically for the user in case someone bids higher *trigger
-            [] alert the buyer in case someone bids more than your upper limit *trigger same as manual
-   [] when the closing date and time has come *via trigger?
+            [X] alert the buyer in case someone bids more than your upper limit *trigger same as manual
+   [X] when the closing date and time has come
         [] check if the seller has set a reserve
              [] if yes: if the reserve is higher than the last bid none is the winner.
                          if the maximum bid meets the reserve, it will automatically increase to meet that price. *trigger
