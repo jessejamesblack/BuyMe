@@ -38,10 +38,10 @@ IV Customer representatives and admin functions
                 [] end-user
             [] best-selling items
                [] best buyers
-    [] user question answering
+    [x] user question answering
         [X]create a page for users to ask questions
         [X] a user can post a question
-        [] a user can search and browse questions and answers
+        [x] a user can search and browse questions and answers
         [X] a customer representative:
             [X] answers to questions of users
     [] modifies any information (if this is reasonable)
