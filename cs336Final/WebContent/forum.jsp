@@ -39,8 +39,9 @@
             <% } %>
         </table>                          
  </form> 
- 	<a href='forum_ask_question.jsp'>Ask a question</a><br>  
+ 	<a href='forum_ask_question.jsp'>Ask a question</a><br> 
+ 	   <a href='forum_answer_question.jsp'> Answer a Question(CRs ONLY)</a><br> 
         <a href='success.jsp'>User Page</a>
-    <a href='forum_answer_question.jsp'> Answer a Question(CRs ONLY)</a>
+ 
     </body>
 </html>
