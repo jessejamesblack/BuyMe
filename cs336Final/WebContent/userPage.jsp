@@ -7,7 +7,7 @@
 <title>Member Page</title>
 </head>
 <body>
-
+<center>
 <h1>Welcome <%=session.getAttribute("USERNAME")%> to your home page</h1>
 
 <div>
@@ -16,10 +16,16 @@
 	<a href="memberitems.jsp"><button type="button">Check On Your Items</button></a>
 	<a href="memberbids.jsp"><button type="button">Check On Bids</button></a>
 	<a href="membersimiliar.jsp"><button type="button">Search for similiar items</button></a>
+	<a href="emails.jsp"><button type="button">Email</button></a>
 
  </form>
 </div>
-
+<br>
+<a href = "userPage.jsp">User Page</a><br>
+<a href = "index.jsp">Home</a><br>
+<a href = "alert.jsp">Alerts</a><br>
+<a href = "forum.jsp">Forums</a>
 
 </body>
+</center>
 </html>

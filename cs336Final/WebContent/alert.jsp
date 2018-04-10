@@ -78,8 +78,10 @@ try {
 
 
 %>
+<a href = "userPage.jsp">User Page</a><br>
 <a href = "index.jsp">Home</a><br>
 <a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
+
 </center>
 </html>

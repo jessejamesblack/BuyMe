@@ -42,6 +42,7 @@
  </form> 
  	<a href='forum_ask_question.jsp'>Ask a question</a><br> 
  	   <a href='forum_answer_question.jsp'> Answer a Question(CRs ONLY)</a><br> 
+ 	   <a href = "userPage.jsp">User home</a><br>
  	    <a href = "index.jsp">Home</a><br>
 <a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
