@@ -16,7 +16,7 @@
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
 
-String query = "SELECT * FROM Auction A WHERE A.item_class = '" + request.getParameter("poo")+"'";
+String query = "SELECT * FROM Auction A WHERE A.item_class = '" + request.getParameter("item")+"'";
 
 String[] passArray = request.getParameterValues("passArray");
 String[] passPrice = request.getParameterValues("passPrice");
@@ -44,8 +44,8 @@ for(int i = 0; i<passArray.length;i++){
 	
 	
 	%>	
-			<form method="post" action = "itemRedirectPage.jsp">
-			  <input type="submit" value="<%=passID[i]%>" name = "poo">, <%out.print(passArray[i]);%>, initial price <%out.print(passPrice[i]);%>
+			<form method="post" action = "individualItemPage.jsp">
+			  <input type="submit" value="<%=passID[i]%>" name = "item">, <%out.print(passArray[i]);%>, initial price <%out.print(passPrice[i]);%>
 			  </form>
 			  <br>
 			  <br>
@@ -115,7 +115,7 @@ for(int i = 0; i<passArray.length;i++){
 		  		}
 		  		%>
 		  		<Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
-				<input type="submit" value="<%=store2%>" name = "poo">
+				<input type="submit" value="<%=store2%>" name = "item">
 			  	</form>
 		  
 		  
@@ -166,7 +166,7 @@ for(int i = 0; i<passArray.length;i++){
 	 	 }
       
       %>
-			<input type="submit" value="<%="Lowest to Highest"%>" name = "poo">
+			<input type="submit" value="<%="Lowest to Highest"%>" name = "item">
 			  </form>
 			 
       <br>
@@ -202,7 +202,7 @@ for(int i = 0; i<passArray.length;i++){
       
       
       
-			<input type="submit" value="<%="Closing Bids"%>" name = "poo">
+			<input type="submit" value="<%="Closing Bids"%>" name = "item">
 			  </form>
       <br>
       <br>

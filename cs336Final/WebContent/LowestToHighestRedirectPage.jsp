@@ -51,7 +51,7 @@ for(int i = 0; i<passArray.length;i++){
 	
 	
 	%>	
-			<form method="post" action = "itemRedirectPage.jsp">
+			<form method="post" action = "individualItemPage.jsp">
 			  <input type="submit" value="<%=passID[i]%>" name = "poo">, <%out.print(passArray[i]); %>, initial price <%out.print(passPrice[i]);%>
 			  </form>
 			  <br>

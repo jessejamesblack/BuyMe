@@ -1,0 +1,62 @@
+I. Create accounts of various kind; login, logout. (X)
+
+II. Auctions
+    [X] a seller posts items for sale
+    [X] set all the characteristics of the item
+    [X] set closing date and time
+    [X] set a hidden minimum price (reserve)
+    [] a buyer should be able to bid
+        [X] manually
+            [X] alert the buyer that a higher bid has been placed (via email? page alert?) *trigger causes alert
+              [X] let the buyer set a new bid
+        [] with automatic bidding
+            [X] set a secret upper limit
+            [] put in a higher bid automatically for the user in case someone bids higher *trigger
+            [] alert the buyer in case someone bids more than your upper limit *trigger same as manual
+   [] when the closing date and time has come *via trigger?
+        [] check if the seller has set a reserve
+             [] if yes: if the reserve is higher than the last bid none is the winner.
+                         if the maximum bid meets the reserve, it will automatically increase to meet that price. *trigger
+             [] if no: whoever has the higher bid is the winner
+  [**] ability to extend the kinds of items being sold, and their properties, without modifying the code or database schema
+
+III Browsing and advanced search functionality
+    [X] let people browse on the items and see the status of the current bidding
+    [X] sort by different criteria (by type, bidding price etc.)
+    [X] search the list of items by various criteria.
+    [*X] let user set an alert for specific items (s)he is interested in
+
+IV Customer representatives and admin functions
+    [X] create an admin account ahead of time
+    the admin:
+    [X] creates accounts for customer representatives
+        [] generates sales reports for: /* This is typical in the real world: customers add requirements all the time!*/
+            [] total earnings
+            [] earnings per:
+                [] item
+                [] item type
+                [] end-user
+            [] best-selling items
+               [] best buyers
+    [] user question answering
+        [X]create a page for users to ask questions
+        [] a user can post a question
+        [] a user can search and browse questions and answers
+        [] a customer representative:
+            [] answers to questions of users
+    [] modifies any information (if this is reasonable)
+    [] removes bids (that abide to specific rules)
+    [] remove illegal auctions
+    
+V History of auctions and auction similarity
+    [] a user should be able to:
+        [X] view the history of bids for any specific auction
+        [] view the list of all auctions a specific buyer or seller has participated in
+        [*] view the list of "similar" items on auctions in the preceding month (and auction information about them). [This is helpful for people posting things to sell, in order to figure out what are reasonable minimum prices.]
+ 
+
+ Everywhere above where there is a function for creating something, one
+should/could have ones for modifying and deleting it; these are not listed,
+in order to make the description shorter.  But this is an opportunity for
+"staged development": enhance your system (and grade :) as time allows at
+the end by adding these features.)

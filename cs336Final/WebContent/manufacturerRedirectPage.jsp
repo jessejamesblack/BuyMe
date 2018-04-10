@@ -45,8 +45,8 @@ for(int i = 0; i<passArray.length;i++){
 	
 	
 	%>	
-			<form method="post" action = "itemRedirectPage.jsp">
-			  <input type="submit" value="<%=passID[i]%>" name = "poo">, <%out.print(passArray[i]);%>, initial price <%out.print(passPrice[i]);%>
+			<form method="post" action = "individualItemPage.jsp">
+			  <input type="submit" value="<%=passID[i]%>" name = "item">, <%out.print(passArray[i]);%>, initial price <%out.print(passPrice[i]);%>
 			  </form>
 			  <br>
 			  <br>
@@ -110,7 +110,7 @@ for(int i = 0; i<passArray.length;i++){
 		  }
 		  %> 
 		  
-			<input type="submit" value="<%="Console"%>" name = "poo">
+			<input type="submit" value="<%="Console"%>" name = "item">
 			  </form>
 	<form method="post" action = "itemCatagoriesRedirectPage.jsp">
 	<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
@@ -152,7 +152,7 @@ for(int i = 0; i<passArray.length;i++){
 		  }
 		  %> 
 		  
-			<input type="submit" value="<%="Computer"%>" name = "poo">
+			<input type="submit" value="<%="Computer"%>" name = "item">
 			  </form>
 	<form method="post" action = "itemCatagoriesRedirectPage.jsp">
 	<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
@@ -193,7 +193,7 @@ for(int i = 0; i<passArray.length;i++){
 		  }
 		  %> 
 		  
-			<input type="submit" value="<%="Phone"%>" name = "poo">
+			<input type="submit" value="<%="Phone"%>" name = "item">
 			  </form>
 		
 		<% }%>
@@ -249,7 +249,7 @@ for(int i = 0; i<passArray.length;i++){
       
       %>
 		  
-			<input type="submit" value="<%="Lowest to Highest"%>" name = "poo">
+			<input type="submit" value="<%="Lowest to Highest"%>" name = "item">
 			  </form>
 			  <%} %>
       <br>
@@ -289,7 +289,7 @@ for(int i = 0; i<passArray.length;i++){
 		  		
       
       
-			<input type="submit" value="<%="Closing Bids"%>" name = "poo">
+			<input type="submit" value="<%="Closing Bids"%>" name = "item">
 			  </form>
       <br>
       <br>
