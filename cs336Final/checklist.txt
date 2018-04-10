@@ -14,10 +14,10 @@ II. Auctions
             [] put in a higher bid automatically for the user in case someone bids higher *trigger
             [X] alert the buyer in case someone bids more than your upper limit *trigger same as manual
    [X] when the closing date and time has come
-        [] check if the seller has set a reserve
-             [] if yes: if the reserve is higher than the last bid none is the winner.
-                         if the maximum bid meets the reserve, it will automatically increase to meet that price. *trigger
-             [] if no: whoever has the higher bid is the winner
+        [X] check if the seller has set a reserve
+             [X] if yes: if the reserve is higher than the last bid none is the winner.
+                         if the maximum bid meets the reserve, it will automatically increase to meet that price.
+             [X] if no: whoever has the higher bid is the winner
   [**] ability to extend the kinds of items being sold, and their properties, without modifying the code or database schema
 
 III Browsing and advanced search functionality
