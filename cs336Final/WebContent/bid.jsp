@@ -9,6 +9,7 @@
 </head>
 <body>
 <% int status = 0;
+boolean closed = false;
 try {
 	Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");    
@@ -23,12 +24,22 @@ try {
 		if(rs1.next()){
 			max = rs1.getDouble("maxbid");
 			increment = rs1.getDouble("increment");
+			Statement st1 = conn.createStatement();
+			ResultSet rs = st1.executeQuery("SELECT NOW() AS now, auction_number, item_class, item_manufacturer, item_name, date_time_close, reserve, init_price, increment, seller_name FROM Auction WHERE auction_number = " + session.getAttribute("AUCTION").toString());
+			if(rs.next()){
+				if(rs.getString("now").compareTo(rs.getString("date_time_close")) > 0){
+					closed = true;
+				}
+			}
 		}else{
 			Statement st2 = conn.createStatement();
-			ResultSet rs2 = st2.executeQuery("SELECT * FROM Auction WHERE auction_number = " + session.getAttribute("AUCTION").toString());
+			ResultSet rs2 = st2.executeQuery("SELECT NOW() AS now, auction_number, item_class, item_manufacturer, item_name, date_time_close, reserve, init_price, increment, seller_name FROM Auction WHERE auction_number = " + session.getAttribute("AUCTION").toString());
 			if(rs2.next()){
+				if(rs2.getString("now").compareTo(rs2.getString("date_time_close")) > 0){
+					closed = true;
+				}
 				max = rs2.getDouble("init_price");
-				increment = rs2.getDouble("increment");
+				increment = 0;
 			}else{
 				max = 0;
 				increment = 0;
@@ -42,7 +53,12 @@ try {
 				pst1.setDouble(1,bidamount);
 				pst1.setString(2, session.getAttribute("USERNAME").toString());
 				pst1.setInt(3, Integer.parseInt(session.getAttribute("AUCTION").toString()));
-				status = pst1.executeUpdate();      
+				//out.print(closed);
+				if(closed){
+					status = 0;
+				}else{
+					status = pst1.executeUpdate();  
+				}
 			    if(status > 0) {
 			    	out.print("successful bid entry");
 			    }else{
@@ -59,7 +75,12 @@ try {
 				pst2.setDouble(2, maxbid);
 				pst2.setString(3, session.getAttribute("USERNAME").toString());
 				pst2.setInt(4, Integer.parseInt(session.getAttribute("AUCTION").toString()));
-				status = pst2.executeUpdate();      
+				
+				if(closed){
+					status = 0;
+				}else{
+					status = pst2.executeUpdate();      
+				}
 			    if(status > 0) {
 			    	out.print("successful bid entry");
 			    }else{
