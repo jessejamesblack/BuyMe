@@ -11,7 +11,22 @@
     </head>
 
     <body>
-        <h1>Forum</h1>
+         <h1>Forum</h1>
+        <form method="post" action="forum_sortby.jsp">
+        
+        	<tr>
+                      <td>Choose Question Subject:</td>
+                      <td><select name="subject">
+							<option value="purchases">Purchases</option>
+							<option value="returns">Returns</option>
+							<option value="payment">Payment</option>
+							<option value="account">Account</option>
+						</select>
+						<br>
+					 </td>
+                  </tr>
+                  <input type="submit" value="Sort"/>
+                  </form>
 
 <form method="post" action="forum.jsp">
         <% 
@@ -37,6 +52,21 @@
                 <td> <%= resultset.getString(3) %></td>
                 <td> <%= resultset.getString(4) %></td>
                 <td> <%= resultset.getString(6) %></td>
+            </tr>
+            <% } %>
+            <% Statement st2 = conn.createStatement();
+            String src2 = (String)session.getAttribute("USERNAME");
+            ResultSet resultset2 = 
+                    st.executeQuery("SELECT * FROM Question WHERE subject <>'" + request.getParameter("subject") +"'") ; 
+            
+            %>
+            <% while(resultset2.next()){ %>
+            <tr>
+                <td> <%= resultset2.getString(5) %></td>
+                <td> <%= resultset2.getString(2) %></td>
+                <td> <%= resultset2.getString(3) %></td>
+                <td> <%= resultset2.getString(4) %></td>
+                <td> <%= resultset2.getString(6) %></td>
             </tr>
             <% } %>
              
