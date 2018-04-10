@@ -12,6 +12,21 @@
 
     <body>
         <h1>Forum</h1>
+        <form method="post" action="forum_sortby.jsp">
+        
+        	<tr>
+                      <td>Choose Question Subject:</td>
+                      <td><select name="subject">
+							<option value="purchases">Purchases</option>
+							<option value="returns">Returns</option>
+							<option value="payment">Payment</option>
+							<option value="account">Account</option>
+						</select>
+						<br>
+					 </td>
+                  </tr>
+                  <input type="submit" value="Sort"/>
+                  </form>
 <form method="post" action="forum.jsp">
         <% 
 	        Class.forName("com.mysql.jdbc.Driver");
@@ -19,9 +34,8 @@
 	        Statement st = conn.createStatement();
             String src = (String)session.getAttribute("USERNAME");
             ResultSet resultset = 
-                st.executeQuery("SELECT * FROM Question") ; 
+                st.executeQuery("SELECT * FROM Question ORDER BY subject") ; 
         %>
-
         <table BORDER="1">
 			<tr>
                 <th>Username</th>
@@ -38,6 +52,7 @@
                 <td> <%= resultset.getString(6) %></td>
             </tr>
             <% } %>
+             
         </table>                          
  </form> 
  	<a href='forum_ask_question.jsp'>Ask a question</a><br> 
@@ -46,7 +61,6 @@
  	    <a href = "index.jsp">Home</a><br>
 <a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
-</center>
     </body>
 
 </html>
