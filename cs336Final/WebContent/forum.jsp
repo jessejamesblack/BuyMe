@@ -5,6 +5,7 @@
 <% Class.forName("com.mysql.jdbc.Driver"); %>
 
 <html>
+<center>
     <head>
         <title>Forum</title>
     </head>
@@ -41,7 +42,10 @@
  </form> 
  	<a href='forum_ask_question.jsp'>Ask a question</a><br> 
  	   <a href='forum_answer_question.jsp'> Answer a Question(CRs ONLY)</a><br> 
-        <a href='success.jsp'>User Page</a>
- 
+ 	    <a href = "index.jsp">Home</a><br>
+<a href = "alert.jsp">Alerts</a><br>
+<a href = "forum.jsp">Forums</a>
+</center>
     </body>
+
 </html>

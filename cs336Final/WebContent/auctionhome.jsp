@@ -9,10 +9,6 @@
 <center>
 <body>
 <h1>BuyMe Auction Home</h1>
-<form method="post" action = "createauction.jsp">
-<input type="submit" value="Sell">
-</form>
-<br>
 <br>
 <form method="post" action="listOfUsers.jsp">
 <input type="text" name="usersearch">
@@ -23,9 +19,15 @@
 <input type="text" name="itemName"/>
 <input type="submit" value="Search Items">
 </form>
-<br><br><br>
+<br>
+<form method="post" action = "createauction.jsp">
+<input type="submit" value="Sell">
+</form>
+<br>
 <form method="post" action="logout.jsp">
 <input type="submit" value="Logout"><br>
+<br>
+<a href = "index.jsp">Home</a><br>
 <a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 </form>

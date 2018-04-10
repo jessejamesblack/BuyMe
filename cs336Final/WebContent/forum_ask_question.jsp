@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<center>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Question and Answer Page</title>
 </head>
@@ -38,6 +39,10 @@
               </tbody>
           </table>
 </form>
-<a href='forum.jsp'>Forum</a><br>
+<a href = "index.jsp">Home</a><br>
+<a href = "alert.jsp">Alerts</a><br>
+<a href = "forum.jsp">Forums</a>
+
 </body>
+</center>
 </html>
