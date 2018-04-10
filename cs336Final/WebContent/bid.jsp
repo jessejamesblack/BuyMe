@@ -76,6 +76,5 @@ try {
 }
 
 %>
-	<a href = "individualItemPage.jsp">Return to Auction Page</a>
 </body>
 </html>
