@@ -272,18 +272,6 @@
       _________________
       <br>
       <br>
-      
-      <form method="post" action = "itemCatagoriesRedirectPage.jsp">
-      <Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
-		  <Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
-		  <Input type = "Hidden" name = "low?" value = "<%="YES"%>">
-		  <Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
-			<input type="submit" value="<%="Closing Bids"%>" name = "poo">
-			  </form>
-      <br>
-      <br>
-      _________________
-      <br>
 	 
 	 
 	 <% conn.close();
