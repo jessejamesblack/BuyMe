@@ -13,9 +13,7 @@ try{
 	int qid = Integer.parseInt(request.getParameter("qid"));
 	String answer = request.getParameter("answer"); 
 	String answerer = session.getAttribute("USERNAME").toString();
-	if(session.getAttribute("ACCOUNTTYPE").toString() != "C"){
-		response.sendRedirect("forum.jsp");
-	}
+	
 	Class.forName("com.mysql.jdbc.Driver").newInstance();
     Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
     if(answer == ""){
@@ -25,7 +23,12 @@ try{
 	pst.setString(1, answer);
 	pst.setString(2, answerer);
 	pst.setInt(3, qid);
-	status = pst.executeUpdate();
+	
+	if(session.getAttribute("ACCOUNTTYPE").toString() != "C"){
+		status = 0;
+	}else{
+		status = pst.executeUpdate();
+	}
 	if(status >0){
 		response.sendRedirect("forum.jsp");
 	}else{
