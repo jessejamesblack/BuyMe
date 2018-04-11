@@ -23,7 +23,7 @@ Max Price Willing to Pay<input type="text" name="maxbid"/>
     }
     %><br><br>
 
-<table border="1" width="100%">
+<table border="1" width="75%">
 		<tr>
 			<th>Seller username: <form method="post" action="individualUserPage.jsp"><input type ="submit" value="<%=rs.getString("seller_name")%>" name="user"></th>
 			<th>Item: <%=rs.getString("item_class")%>, <%=rs.getString("item_manufacturer")%>, <%=rs.getString("item_name")%></th>
@@ -37,7 +37,7 @@ Max Price Willing to Pay<input type="text" name="maxbid"/>
 	<%
 	Statement st2 = conn.createStatement();
 	ResultSet rs2 = st2.executeQuery("SELECT username, bid_amount FROM Bid WHERE auction_number = " + session.getAttribute("AUCTION").toString() + " ORDER BY bid_amount DESC");
-	out.print("<table>");
+	out.print("<table border='1'>");
 	out.print("<tr><th colspan = '2'>History Of Bids</th></tr><tr><th>Bidder</th><th>Amount</th></tr>");
     while(rs2.next()){
     	out.print("<tr>");
@@ -48,7 +48,27 @@ Max Price Willing to Pay<input type="text" name="maxbid"/>
 		out.print(rs2.getDouble("bid_amount"));
 		out.print("</td></tr>");
     }
+    out.print("</table><br>");
+	
+	PreparedStatement pst = conn.prepareStatement("SELECT A2.auction_number, A2.item_name FROM Auction A, Auction A2 WHERE A.auction_number = ? AND A.auction_number != A2.auction_number AND (A.item_class=A2.item_class OR A.item_manufacturer=A2.item_manufacturer OR A.init_price BETWEEN A2.init_price-20 AND A2.init_price+20)");
+	pst.setDouble(1, Double.parseDouble(session.getAttribute("AUCTION").toString()));
+	ResultSet rs3 = pst.executeQuery();
+	out.print("<table border='1'>");
+	out.print("<tr><th colspan = '2'>Similar Auctions</th></tr><tr><th>Auction#</th><th>Item</th></tr>");
+	while(rs3.next()){
+    	out.print("<tr>");
+		out.print("<td>");
+		out.print("<form action='individualItemPage.jsp'><input type='submit' value='" + rs3.getInt("A2.auction_number") + "' name='item'></form>");
+		out.print("</td>");
+		out.print("<td>");
+		out.print(rs3.getString("A2.item_name"));
+		out.print("</td></tr>");
+    }
     out.print("</table>");
+	
+	
+	
+    
     
     conn.close();
 }catch(Exception e){
