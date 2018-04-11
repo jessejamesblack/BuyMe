@@ -284,42 +284,9 @@ for(int i = 0; i<passArray.length;i++){
       <br>
       <%} %>
       <br>
-      <%if(!(request.getParameter("bid?").equals("NO"))){ %>
-      <form method="post" action = "itemCatagoriesRedirectPage.jsp">
-      <Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
-      
-     			<% 
-		  		 if(request.getParameter("manu?").equals("NO")){
-		  		%>
-		  		<Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
-		  		<%}else{ %>
-		  			<Input type = "Hidden" name = "manu?" value = "<%="YES"%>">
-		  		<% }
-		  		 if(request.getParameter("cata?").equals("NO")){
-		  		%>
-		  		<Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
-		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
-		  		<% }
-		  		 if(request.getParameter("bid?").equals("NO")){
-		  		%>
-		  		<Input type = "Hidden" name = "bid?" value = "<%="NO"%>">
-		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
-		  		
-		  		<%}%>		  		
       
       
-      
-      
-			<input type="submit" value="<%="Closing Bids"%>" name = "poo">
-			  </form>
-      <br>
-      <br>
-    
-      _________________
-      
-      <%} 
+      <%
       
       conn.close();
       %>
