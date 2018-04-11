@@ -30,13 +30,13 @@ IV Customer representatives and admin functions
     [X] create an admin account ahead of time
     the admin:
     [X] creates accounts for customer representatives
-        [] generates sales reports for: /* This is typical in the real world: customers add requirements all the time!*/
-            [] total earnings
-            [] earnings per:
-                [] item
-                [] item type
-                [] end-user
-            [] best-selling items
+        [X] generates sales reports for: /* This is typical in the real world: customers add requirements all the time!*/
+            [X] total earnings
+            [X] earnings per:
+                [X] item
+                [X] item type
+                [X] end-user
+            [X] best-selling items
                [] best buyers
     [x] user question answering
         [X]create a page for users to ask questions
