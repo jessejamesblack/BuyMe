@@ -25,8 +25,8 @@ String[] passID = request.getParameterValues("passID");
 
 Statement stmt = null;
 stmt = conn.createStatement();
-
 ResultSet result = stmt.executeQuery(query);
+
 String store;
 int lengthTable = 0;
 
@@ -253,49 +253,8 @@ for(int i = 0; i<passArray.length;i++){
 			  </form>
 			  <%} %>
       <br>
-      <%if(!(request.getParameter("bid?").equals("NO"))){ %>
-      _________________
       <br>
-      <br>
-      
-      <form method="post" action = "itemCatagoriesRedirectPage.jsp">
-      <Input type = "Hidden" name = "manu?" value = "<%="NO"%>">
-      
-      
-      <% 
-		  		 if(request.getParameter("cata?").equals("NO")){
-		  		%>
-		  		<Input type = "Hidden" name = "cata?" value = "<%="NO"%>">
-		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "cata?" value = "<%="YES"%>">
-		  		<%}%>
-		  		<% 
-		  		 if(request.getParameter("low?").equals("NO")){
-		  		%>
-		  		<Input type = "Hidden" name = "low?" value = "<%="NO"%>">
-		  		<%}else{ %>
-		  		<Input type = "Hidden" name = "low?" value = "<%="YES"%>">
-		  		<%} %>
-		  		<% 
-		  		 if(request.getParameter("bid?").equals("NO")){
-		  		%>
-		  		<Input type = "Hidden" name = "bid?" value = "<%="NO"%>">
-		  		<%}else{%>
-		  		<Input type = "Hidden" name = "bid?" value = "<%="YES"%>">
-		  		<%} %>
-		  		
-      
-      
-		  		
-      
-      
-			<input type="submit" value="<%="Closing Bids"%>" name = "item">
-			  </form>
-      <br>
-      <br>
-     
-      _________________
-       <%} 
+       <%
       conn.close();
        %>
       <br>
