@@ -40,6 +40,7 @@
         %>
         <table BORDER="1">
 			<tr>
+                <th>QID</th>
                 <th>Username</th>
                 <th>Subject</th>
                 <th>Question</th>
@@ -47,6 +48,7 @@
                 <th>Answerer</tr>
             <% while(resultset.next()){ %>
             <tr>
+                <td><%=resultset.getInt(1) %></td>
                 <td> <%= resultset.getString(5) %></td>
                 <td> <%= resultset.getString(2) %></td>
                 <td> <%= resultset.getString(3) %></td>
@@ -62,6 +64,7 @@
             %>
             <% while(resultset2.next()){ %>
             <tr>
+                <td><%=resultset2.getInt(1) %></td>
                 <td> <%= resultset2.getString(5) %></td>
                 <td> <%= resultset2.getString(2) %></td>
                 <td> <%= resultset2.getString(3) %></td>
