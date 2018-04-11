@@ -20,6 +20,7 @@ Password:<input type="password" name="password"/><br/>
 <input type="submit" value="Register"/>
 </form>
 <br><a href="CRaccountDeletion.jsp">Delete CR Account</a><br>
+<a href ="sales.jsp">Generate Sales Reports</a><br>
 <a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 </center>
