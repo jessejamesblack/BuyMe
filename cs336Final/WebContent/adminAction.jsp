@@ -22,7 +22,9 @@ Password:<input type="password" name="password"/><br/>
 <br><a href="CRaccountDeletion.jsp">Delete CR Account</a><br>
 <a href ="sales.jsp">Generate Sales Reports</a><br>
 <a href = "alert.jsp">Alerts</a><br>
-<a href = "forum.jsp">Forums</a>
+<a href = "forum.jsp">Forums</a><br>
+ <a href = "deleteBid.jsp">Delete Bid</a><br>
+<a href = "deleteAuction.jsp">Delete Auction</a><br>
 </center>
 </body>
 </html>
