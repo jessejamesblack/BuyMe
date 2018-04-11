@@ -23,13 +23,13 @@ try{
 	pst.setString(1, answer);
 	pst.setString(2, answerer);
 	pst.setInt(3, qid);
-	
-	if(session.getAttribute("ACCOUNTTYPE").toString() != "C"){
+	if(!session.getAttribute("ACCOUNTTYPE").toString().equals("C")){
 		status = 0;
 	}else{
 		status = pst.executeUpdate();
 	}
-	if(status >0){
+	
+	if(status > 0){
 		response.sendRedirect("forum.jsp");
 	}else{
 		out.print("something went wrong");
