@@ -16,9 +16,6 @@ stmt = conn.createStatement();
 for(int i = 0; i < checkboxValues.length;i++){
 	String query = "DELETE FROM Auction WHERE auction_number ='"+checkboxValues[i]+"'";
 	stmt.executeUpdate(query);
-	String query2 = "DELETE FROM Bid WHERE auction_number ='"+checkboxValues[i]+"'";
-	stmt.executeUpdate(query2);
-	
 	
 }
 
