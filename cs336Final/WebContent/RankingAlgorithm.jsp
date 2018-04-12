@@ -164,7 +164,7 @@
 		  <% 
 		  }
 		  %>
-			<input type="submit" value="<%=store2%>" name = "poo">
+			<input type="submit" value="<%=store2%>" name = "item">
 			  </form>
 		  
 		  
@@ -198,7 +198,7 @@
 		  %> 
 		  
 		
-			<input type="submit" value="<%="Console"%>" name = "poo">
+			<input type="submit" value="<%="Console"%>" name = "item">
 			  </form>
 			  
 	<form method="post" action = "itemCatagoriesRedirectPage.jsp">
@@ -220,7 +220,7 @@
 	  }
       
       %>
-			<input type="submit" value="<%="Computer"%>" name = "poo">
+			<input type="submit" value="<%="Computer"%>" name = "item">
 			  </form>
 			  
 	<form method="post" action = "itemCatagoriesRedirectPage.jsp">
@@ -241,7 +241,7 @@
 	  }
       
       %>
-			<input type="submit" value="<%="Phone"%>" name = "poo">
+			<input type="submit" value="<%="Phone"%>" name = "item">
 			  </form>
       
       <br>
@@ -266,7 +266,7 @@
 	  }
       
       %>
-			<input type="submit" value="<%="Lowest to Highest"%>" name = "poo">
+			<input type="submit" value="<%="Lowest to Highest"%>" name = "item">
 			  </form>
       <br>
       _________________
