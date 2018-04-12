@@ -13,7 +13,7 @@
         	session.setAttribute("USERNAME", rs.getString("username"));
         	session.setAttribute("EMAIL", rs.getString("email"));
         	session.setAttribute("ACCOUNTTYPE", rs.getString("accountType"));
-           response.sendRedirect("auctionhome.jsp"); 
+           response.sendRedirect("CRHome.jsp"); 
         }else{
         	response.sendRedirect("CRloginhome.jsp");
            }
