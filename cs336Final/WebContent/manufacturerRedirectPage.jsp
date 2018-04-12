@@ -16,7 +16,7 @@
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
 
-String query = "SELECT * FROM Auction A WHERE A.item_manufacturer = '" + request.getParameter("poo")+"'";
+String query = "SELECT * FROM Auction A WHERE A.item_manufacturer = '" + request.getParameter("item")+"'";
 
 String[] passArray = request.getParameterValues("passArray");
 String[] passPrice = request.getParameterValues("passPrice");
