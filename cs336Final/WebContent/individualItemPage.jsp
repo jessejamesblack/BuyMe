@@ -17,6 +17,9 @@ Max Price Willing to Pay<input type="text" name="maxbid"/>
     Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");    
     Statement st = conn.createStatement();
     ResultSet rs = st.executeQuery("SELECT * FROM Auction WHERE auction_number = " + item);
+    
+    Statement stat = conn.createStatement();
+    ResultSet result = stat.executeQuery("SELECT Auction.auction_number, Bid.username FROM Auction, Bid WHERE Auction.auction_number = "+ item+ " AND Auction.auction_number = Bid.auction_number AND Auction.auction_number IN(SELECT A.auction_number FROM Auction A WHERE NOW() > A.date_time_close) AND Bid.bid_amount = (SELECT MAX(bid_amount) FROM Bid B WHERE B.auction_number = Auction.auction_number)");
     if(rs.next()){
     	out.println("Initial Price: $" + rs.getDouble("init_price") + "<br>");
     	out.print("Minimum Bid Increment: $" + rs.getDouble("increment"));
@@ -27,11 +30,14 @@ Max Price Willing to Pay<input type="text" name="maxbid"/>
 		<tr>
 			<th>Seller username: <form method="post" action="individualUserPage.jsp"><input type ="submit" value="<%=rs.getString("seller_name")%>" name="user"></th>
 			<th>Item: <%=rs.getString("item_class")%>, <%=rs.getString("item_manufacturer")%>, <%=rs.getString("item_name")%></th>
-			<th>Auction ends: <%=rs.getString("date_time_close") %>
-			<%//Statement st2 = conn.createStatement();
-			//ResultSet rs2 = st2.executeQuery("SELECT TIMESTAMPDIFF(minute,now()," + rs.getString("date_time_close")+")");
-			%>
-			</th>
+			<th>Auction ends: <%=rs.getString("date_time_close") %></th>
+			<th><%if(result.next()) {
+				out.print("Closed - Winner: " + result.getString("username"));
+			}else{
+				out.print("Open");
+			}
+			
+			%></th>
 		</tr>
 	</table>
 	<%
