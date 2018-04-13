@@ -43,15 +43,7 @@ CREATE TABLE Email(
     PRIMARY KEY(eid),
     FOREIGN KEY(`from`) REFERENCES Account(username),
     FOREIGN KEY(`to`) REFERENCES Account(username));
-    
-CREATE TABLE ManualBid(
-	bid_number INTEGER auto_increment,
-    bid_amount DOUBLE NOT NULL,
-    username VARCHAR(20) NOT NULL,
-    auction_number INTEGER(255) NOT NULL,
-    FOREIGN KEY(username) REFERENCES Account(username) ON DELETE CASCADE,
-    FOREIGN KEY(auction_number) REFERENCES Auction(auction_number) ON DELETE CASCADE,
-    primary key(bid_number));
+
 
 CREATE TABLE Bid(
 	bid_number INTEGER auto_increment,
@@ -77,4 +69,5 @@ CREATE TABLE Question(
 CREATE TABLE Warning(
 	wID INTEGER auto_increment PRIMARY KEY,
     item_name VARCHAR(20),
-    seller_name VARCHAR(20));
+    seller_name VARCHAR(20),
+    FOREIGN KEY(seller_name) REFERENCES Account(username));
