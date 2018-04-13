@@ -1,0 +1,43 @@
+delimiter //
+CREATE TRIGGER alertTrigger AFTER INSERT ON Auction
+	FOR EACH ROW
+    	BEGIN
+		IF (NEW.item_class, NEW.item_manufacturer, NEW.item_name) IN(SELECT item_class, item_manufacturer, item_name FROM Alert)
+        THEN UPDATE Alert SET Alert.alert_triggered = 1 WHERE item_class = NEW.item_class AND item_manufacturer = NEW.item_manufacturer AND item_name = NEW.item_name;
+		END IF;
+	END;//
+delimiter //
+
+
+
+delimiter // 
+CREATE TRIGGER bidTrigger BEFORE INSERT ON Bid
+	FOR EACH ROW
+    BEGIN
+		IF EXISTS(SELECT * FROM Bid WHERE (maxBid IS NULL OR NEW.bid_amount >= maxBid) AND bid_amount = (SELECT MAX(bid_amount) FROM Bid WHERE auction_number= NEW.auction_number))
+        THEN INSERT INTO Email(`from`, `to`, subject, date_time, content) VALUES('admin', (SELECT username FROM Bid WHERE (maxBid IS NULL OR NEW.bid_amount >= maxBid) AND bid_amount = (SELECT MAX(bid_amount) FROM Bid WHERE auction_number = NEW.auction_number)), "Higher Bid Alert", NOW(), CONCAT("A higher bid has been placed on Auction: ", CONVERT(NEW.auction_number, CHAR)));
+        END IF;
+	END;//
+delimiter //
+
+
+delimiter //
+CREATE TRIGGER autobid AFTER INSERT ON Bid
+	FOR EACH ROW
+	BEGIN
+		IF EXISTS(SELECT * FROM Bid WHERE maxBid IS NOT NULL AND auction_number = NEW.auction_number ORDER BY bid_amount DESC LIMIT 1 OFFSET 1) AND ((SELECT increment FROM Auction WHERE auction_number = NEW.auction_number) + NEW.bid_amount) <= (SELECT maxBid FROM Bid WHERE auction_number = NEW.auction_number ORDER BY bid_amount DESC LIMIT 1 OFFSET 1)
+        THEN UPDATE Bid SET bid_amount = (NEW.bid_amount + (SELECT increment FROM Bid WHERE auction_number = NEW.auction_number ORDER BY bid_amount DESC LIMIT 1 OFFSET 1)) WHERE bid_number = (SELECT bid_number FROM Bid WHERE auction_number = NEW.auction_number ORDER BY bid_amount DESC LIMIT 1 OFFSET 1);
+        END IF;
+	END;//
+delimiter //
+
+
+delimiter //
+CREATE TRIGGER warning BEFORE INSERT ON Auction
+	FOR EACH ROW
+	BEGIN
+		IF ((NEW.init_price > NEW.reserve) AND NEW.reserve <> 0) OR (NEW.init_price < 0) OR (NEW.date_time_close < NOW())
+        THEN INSERT INTO Warning(item_name, seller_name) VALUES(NEW.item_name, NEW.seller_name);
+        END IF;
+	END;//
+delimiter //
