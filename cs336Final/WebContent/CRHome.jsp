@@ -33,6 +33,7 @@
 <a href = "forum.jsp">Forums</a><br>
 <a href = "deleteBid.jsp">Delete Bid</a><br>
 <a href = "deleteAuction.jsp">Delete Auction</a><br>
+<a href = "warnings.jsp">Warnings</a>
 </form>
 </body>
 </center>
