@@ -27,13 +27,14 @@ int n=passArray.length;
 for (int i=1; i<n; ++i)
 {
 	
-    float key = Float.parseFloat(passPrice[i]);
+    String key = passPrice[i];
+    float keyx = Float.parseFloat(passPrice[i]);
     String key2 = passArray[i];
     String key3 = passID[i];
     int j = i-1;
 
     
-    while (j>=0 && Float.parseFloat(passPrice[j]) > key)
+    while (j>=0 && Float.parseFloat(passPrice[j]) > keyx)
     {
         passArray[j+1] = passArray[j];
         passPrice[j+1] = passPrice[j];
@@ -41,9 +42,10 @@ for (int i=1; i<n; ++i)
         j = j-1;
     }
     passArray[j+1] = key2;
-    passPrice[j+1] = passPrice[i];
+    passPrice[j+1] = key;
     passID[j+1] = key3;
 }
+
 
 for(int i = 0; i<passArray.length;i++){
 	
