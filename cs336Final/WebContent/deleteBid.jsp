@@ -1,6 +1,7 @@
 <%@ page import="java.sql.*"%>
 <%@ page import= "java.util.*" %>
 <%@ page import = "java.lang.*" %>
+<head><title>Delete Bids</title></head>
 <% 
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
@@ -23,7 +24,7 @@ ______________________________________
 while(result.next()){
  %>
  <br>
-	 <input type = "checkbox" name = "item" value = "<%= result.getString("bid_number")%>">, Bid Amount: <%= result.getString("bid_amount")%>, Bidder <%= result.getString("username")%>  <br>
+	 <input type = "checkbox" name = "item" value = "<%= result.getString("bid_number")%>"> Auction#: <%= result.getString("auction_number") %>, Bid Amount: <%= result.getString("bid_amount")%>, Bidder: <%= result.getString("username")%>  <br>
 	 <br>
 	 
 	 
@@ -35,5 +36,8 @@ while(result.next()){
 
 <% conn.close();%><br>
 <a href = "CRHome.jsp">Customer Representative Home Page</a><br>
+
+
+
 
 
