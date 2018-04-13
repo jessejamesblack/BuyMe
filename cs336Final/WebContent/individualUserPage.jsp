@@ -77,6 +77,9 @@ try{
 %><br>
 
 <br>
+<a href = "alert.jsp">Alerts</a><br>
+<a href = "forum.jsp">Forums</a><br>
+<a href = "auctionhome.jsp">Home</a>
 </center>
 </body>
 </html>
