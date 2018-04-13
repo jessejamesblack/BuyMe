@@ -4,7 +4,7 @@
 
 
 <% String userName = session.getAttribute("USERNAME").toString();
-String query = "SELECT * FROM Email E WHERE E.to = '" + userName+"'";
+String query = "SELECT * FROM Email E WHERE E.to = '" + userName+"' ORDER BY date_time DESC";
 
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");
