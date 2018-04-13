@@ -2,9 +2,11 @@
 <head>
 <title>BuyMe Home Page</title>
 </head>
-<center><h1>BuyMe</h1>
-Computers, Phones, and Consoles</center>
-
+<center><h1><img src="buyme.gif" alt="Angry face" width="150" height="150" /></h1>
+<font size="12" color="red">Computers, Phones, and Consoles</font>
+</center>
+<br>
+<br>
 <center>
 <form method="post" action="login.jsp"><br>
 Username:<input type="text" name="username"/><br/><br/>
