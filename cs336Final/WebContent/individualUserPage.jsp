@@ -51,7 +51,7 @@ try{
 		out.print("</td></tr>");
     }
     out.print("</table><br>");
-    PreparedStatement pst3 = conn.prepareStatement("SELECT A.auction_number, B.bid_amount, A.item_name FROM Bid B, Auction A where B.bid_amount > A.reserve and A.auction_number = B.auction_number and NOW() > A.date_time_close and B.username = ? and B.bid_amount = (SELECT MAX(bid_amount) FROM Bid where Bid.auction_number = A.auction_number)");
+    PreparedStatement pst3 = conn.prepareStatement("SELECT A.auction_number, B.bid_amount, A.item_name FROM Bid B, Auction A where B.bid_amount >= A.reserve and A.auction_number = B.auction_number and NOW() > A.date_time_close and B.username = ? and B.bid_amount = (SELECT MAX(bid_amount) FROM Bid where Bid.auction_number = A.auction_number)");
 	pst3.setString(1, user);
 	ResultSet rs3 = pst3.executeQuery();
 	out.print("<table>");
