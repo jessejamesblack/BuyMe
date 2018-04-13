@@ -51,7 +51,12 @@
                 <td> <%= resultset.getString(2) %></td>
                 <td> <%= resultset.getString(3) %></td>
                 <td> <%= resultset.getString(4) %></td>
-                <td> <%= resultset.getString(6) %></td>
+                <td> <% if(resultset.getString(6) == null){
+                	out.print("");
+                }else{
+                	out.print(resultset.getString(6));
+                }
+                %></td>
             </tr>
             <% } %>
              
