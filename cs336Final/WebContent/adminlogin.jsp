@@ -1,4 +1,5 @@
 <%@ page import ="java.sql.*" %>
+<%-- Ryan/Colin --%>
 <%
     try{
         String username = request.getParameter("username");   

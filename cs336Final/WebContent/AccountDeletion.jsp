@@ -1,4 +1,6 @@
 <html>
+<%-- Ryan/Colin --%>
+
 <head>
 <title>Delete Home</title>
 </head>

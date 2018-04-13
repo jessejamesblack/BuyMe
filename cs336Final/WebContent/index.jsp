@@ -1,3 +1,4 @@
+<%-- Ryan/Colin/Jesse --%>
 <html>
 <head>
 <title>BuyMe Home Page</title>
