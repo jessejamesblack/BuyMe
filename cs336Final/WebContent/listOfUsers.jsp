@@ -35,7 +35,7 @@ catch(Exception e){
 }   
 
 %>
-<a href = "index.jsp">Home</a><br>
+<a href = "auctionhome.jsp">Home</a><br>
 <a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 <body>

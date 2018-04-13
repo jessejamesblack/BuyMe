@@ -24,7 +24,7 @@ Reserve Price (optional): <input type="text" name="reserve"><br>
 Initial Price: <input type="text" name="initprice"><br>
 Increment Amount: <input type="text" name="increment"><br><br>
 <input type="submit" value="Begin Auction!"><br>
-<a href = "index.jsp">Home</a><br>
+<a href = "auctionhome.jsp">Home</a><br>
 <a href = "alert.jsp">Alerts</a><br>
 <a href = "forum.jsp">Forums</a>
 </form>
