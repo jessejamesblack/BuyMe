@@ -16,7 +16,11 @@
 	
 	<a href="emails.jsp"><button type="button">Email</button></a>
 
- </form>
+ </form><br>
+<form method="post" action = "individualUserPage.jsp">
+			  <input type="submit" value="<%out.print(session.getAttribute("USERNAME"));%>" name = "user">
+			  </form>
+			  <br>
 </div>
 <br>
 <a href = "userPage.jsp">User Page</a><br>
