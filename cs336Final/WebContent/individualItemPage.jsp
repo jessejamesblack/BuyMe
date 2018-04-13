@@ -40,7 +40,13 @@ Max Price Willing to Pay<input type="text" name="maxbid"/>
 				}
 				
 			}else{
-				out.print("Open");
+				Statement stat2 = conn.createStatement();
+				ResultSet result2 = stat2.executeQuery("SELECT * FROM Auction WHERE auction_number = " + item + " AND NOW() > date_time_close");
+				if(result2.next()){
+					out.print("Closed - No Winner");
+				}else{
+					out.print("Open");
+				}
 			}
 			
 			%></th>
