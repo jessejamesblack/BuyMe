@@ -89,6 +89,7 @@ Max Price Willing to Pay<input type="text" name="maxbid"/>
 <a href = "CRloginhome.jsp">Customer Representative Login Page</a><br>
 <a href = "AccountDeletion.jsp">Account Deletion Page</a><br><br>
 <a href = "alert.jsp">Alerts</a><br>
-<a href = "forum.jsp">Forums</a>
+<a href = "forum.jsp">Forums</a><br>
+<a href = "auctionhome.jsp">Home</a>
 </html>
 </center>
