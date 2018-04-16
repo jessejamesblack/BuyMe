@@ -10,26 +10,18 @@ delimiter //
 
 
 
-delimiter // 
-CREATE TRIGGER bidTrigger BEFORE INSERT ON Bid
+delimiter //
+CREATE TRIGGER alertTrigger2 AFTER INSERT ON Alert
 	FOR EACH ROW
     BEGIN
-		IF EXISTS(SELECT * FROM Bid WHERE (maxBid IS NULL OR NEW.bid_amount >= maxBid) AND bid_amount = (SELECT MAX(bid_amount) FROM Bid WHERE auction_number= NEW.auction_number))
-        THEN INSERT INTO Email(`from`, `to`, subject, date_time, content) VALUES('admin', (SELECT username FROM Bid WHERE (maxBid IS NULL OR NEW.bid_amount >= maxBid) AND bid_amount = (SELECT MAX(bid_amount) FROM Bid WHERE auction_number = NEW.auction_number)), "Higher Bid Alert", NOW(), CONCAT("A higher bid has been placed on Auction: ", CONVERT(NEW.auction_number, CHAR)));
+		IF EXISTS(SELECT * FROM Auction WHERE item_class = NEW.item_class AND item_manufacturer = NEW.item_manufacturer AND item_name = NEW.item_name)
+        THEN INSERT INTO Email(`from`, `to`, subject, date_time, content) VALUES('admin', NEW.user, 'Alert Warning', NOW(), CONCAT(CONVERT(NEW.alert_number, CHAR), ": This alert is for an auction that already exists."));
         END IF;
 	END;//
 delimiter //
 
 
-delimiter //
-CREATE TRIGGER autobid AFTER INSERT ON Bid
-	FOR EACH ROW
-	BEGIN
-		IF EXISTS(SELECT * FROM Bid WHERE maxBid IS NOT NULL AND auction_number = NEW.auction_number ORDER BY bid_amount DESC LIMIT 1 OFFSET 1) AND ((SELECT increment FROM Auction WHERE auction_number = NEW.auction_number) + NEW.bid_amount) <= (SELECT maxBid FROM Bid WHERE auction_number = NEW.auction_number ORDER BY bid_amount DESC LIMIT 1 OFFSET 1)
-        THEN UPDATE Bid SET bid_amount = (NEW.bid_amount + (SELECT increment FROM Bid WHERE auction_number = NEW.auction_number ORDER BY bid_amount DESC LIMIT 1 OFFSET 1)) WHERE bid_number = (SELECT bid_number FROM Bid WHERE auction_number = NEW.auction_number ORDER BY bid_amount DESC LIMIT 1 OFFSET 1);
-        END IF;
-	END;//
-delimiter //
+
 
 
 delimiter //
