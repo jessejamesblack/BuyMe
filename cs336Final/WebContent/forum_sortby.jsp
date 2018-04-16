@@ -54,7 +54,12 @@
                 <td> <%= resultset.getString(2) %></td>
                 <td> <%= resultset.getString(3) %></td>
                 <td> <%= resultset.getString(4) %></td>
-                <td> <%= resultset.getString(6) %></td>
+                <td> <% if(resultset.getString(6) == null){
+                	out.print("");
+                }else{
+                	out.print(resultset.getString(6));
+                }
+                %></td>
             </tr>
             <% } %>
             <% Statement st2 = conn.createStatement();
@@ -70,7 +75,12 @@
                 <td> <%= resultset2.getString(2) %></td>
                 <td> <%= resultset2.getString(3) %></td>
                 <td> <%= resultset2.getString(4) %></td>
-                <td> <%= resultset2.getString(6) %></td>
+                <td> <% if(resultset2.getString(6) == null){
+                	out.print("");
+                }else{
+                	out.print(resultset2.getString(6));
+                }
+                %></td>
             </tr>
             <% } %>
              
