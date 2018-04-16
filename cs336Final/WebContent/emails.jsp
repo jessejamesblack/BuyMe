@@ -38,6 +38,8 @@ ResultSet result = stmt.executeQuery(query);
 		<br>
 		Date <%= result.getString("date_time") %>
 		<br>
+		Subject: <%=result.getString("subject") %>
+		<br>
 		____________________
 		<br>
 		Content
