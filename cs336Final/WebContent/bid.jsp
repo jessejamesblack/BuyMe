@@ -15,6 +15,19 @@ try {
 	Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://cs336db.cyyfsrtrqnib.us-east-2.rds.amazonaws.com:3306/BuyMe","cmc585","cs336databse");    
     
+    Statement stat = conn.createStatement();
+    ResultSet highBidder = stat.executeQuery("SELECT B.username, B.maxBid FROM Bid B WHERE B.bid_amount = (SELECT MAX(bid_amount) FROM Bid WHERE auction_number = " + session.getAttribute("AUCTION").toString() + ")");
+    double high;
+    String highUser;
+    if(highBidder.next()){
+    	high = highBidder.getDouble("maxBid");
+    	highUser = highBidder.getString("username");
+    }else{
+    	high = 0.0;
+    	highUser = null;
+    }
+    
+    
 	if(request.getParameter("bidamount") == ""){
 		out.print("Error: you have not entered a bid amount");
 	}else {
@@ -58,7 +71,17 @@ try {
 				if(closed){
 					status = 0;
 				}else{
-					status = pst1.executeUpdate();  
+					status = pst1.executeUpdate();
+					if(high != 0.0){
+						if(bidamount + increment <= high){
+							PreparedStatement pst3 = conn.prepareStatement("INSERT INTO Bid(bid_amount,maxBid,username,auction_number) VALUES(?,?,?,?)");
+							pst3.setDouble(1, bidamount + increment);
+							pst3.setDouble(2, high);
+							pst3.setString(3, highUser);
+							pst3.setInt(4, Integer.parseInt(session.getAttribute("AUCTION").toString()));
+							status = pst3.executeUpdate();
+						}
+					}
 				}
 			    if(status > 0) {
 			    	out.print("successful bid entry");
@@ -80,7 +103,7 @@ try {
 				if(closed){
 					status = 0;
 				}else{
-					status = pst2.executeUpdate();      
+					status = pst2.executeUpdate();
 				}
 			    if(status > 0) {
 			    	out.print("successful bid entry");
@@ -100,3 +123,4 @@ try {
 %>
 </body>
 </html>
+
